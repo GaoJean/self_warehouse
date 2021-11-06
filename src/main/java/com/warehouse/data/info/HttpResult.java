@@ -1,13 +1,12 @@
 package com.warehouse.data.info;
 
-import com.warehouse.common.util.error.ApiError;
-import com.warehouse.common.util.error.ErrorCode;
-import com.warehouse.common.util.exception.HouseException;
-import org.jetbrains.annotations.NotNull;
+import com.warehouse.common.error.ApiError;
+import com.warehouse.common.error.ErrorCode;
+import com.warehouse.common.exception.HouseException;
 
 import java.util.Optional;
 
-import static com.warehouse.common.util.error.ApiError.BASE_NOT_FOUND;
+import static com.warehouse.common.error.ApiError.BASE_NOT_FOUND;
 
 
 /**
@@ -41,14 +40,14 @@ public class HttpResult<T> {
         return result;
     }
 
-    public static <T> HttpResult<T> ok(@NotNull T data) {
+    public static <T> HttpResult<T> ok(T data) {
         HttpResult<T> result = new HttpResult();
         result.setSuccess(true);
         result.setData(Optional.of(data));
         return result;
     }
 
-    public static <T> HttpResult<T> ok(@NotNull Optional<T> data) {
+    public static <T> HttpResult<T> ok(Optional<T> data) {
         HttpResult<T> result = new HttpResult();
         result.setSuccess(true);
         result.setData(data);

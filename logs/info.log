@@ -547,3 +547,224 @@ org.apache.ibatis.binding.BindingException: Invalid bound statement (not found):
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-11-06 17:19:52.321| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7172 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:19:52.323| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:19:53.541| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:19:53.552| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:19:53.553| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:19:53.553| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:19:53.662| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:19:53.662| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1298 ms
+2021-11-06 17:19:53.748| WARN|main|org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext[591]|Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productService': Unsatisfied dependency expressed through field 'audienceDOMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audienceDOMapper' defined in file [/Users/gaojian/work/practice/workspace/self_warehouse/target/classes/com/warehouse/dal/mapper/AudienceDOMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2021-11-06 17:19:53.751| INFO|main|org.apache.catalina.core.StandardService[173]|Stopping service [Tomcat]
+2021-11-06 17:19:53.851|ERROR|main|org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter[40]|
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2021-11-06 17:23:34.903| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7261 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:23:34.907| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:23:35.900| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:23:35.914| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:23:35.915| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:23:35.915| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:23:35.991| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:23:35.992| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1023 ms
+2021-11-06 17:23:36.059| WARN|main|org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext[591]|Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productService': Unsatisfied dependency expressed through field 'audienceDOMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audienceDOMapper' defined in file [/Users/gaojian/work/practice/workspace/self_warehouse/target/classes/com/warehouse/dal/mapper/AudienceDOMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2021-11-06 17:23:36.062| INFO|main|org.apache.catalina.core.StandardService[173]|Stopping service [Tomcat]
+2021-11-06 17:23:36.147|ERROR|main|org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter[40]|
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2021-11-06 17:41:01.655| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7675 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:41:01.659| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:41:03.021| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:41:03.031| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:41:03.032| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:41:03.032| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:41:03.105| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:41:03.105| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1371 ms
+2021-11-06 17:41:03.708| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:41:03.726| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-06 17:41:03.755| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.762 seconds (JVM running for 4.552)
+2021-11-06 17:41:07.382| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-06 17:41:07.383| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-06 17:41:07.384| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
+2021-11-06 17:41:07.414| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-06 17:41:07.575| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-06 17:41:41.313| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-06 17:41:41.317| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-06 17:41:47.044| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7699 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:41:47.046| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:41:47.715| WARN|main|org.mybatis.spring.mapper.ClassPathMapperScanner[44]|No MyBatis mapper was found in '[com.warehouse]' package. Please check your configuration.
+2021-11-06 17:41:48.089| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:41:48.101| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:41:48.102| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:41:48.102| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:41:48.222| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:41:48.222| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1138 ms
+2021-11-06 17:41:48.273| WARN|main|org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext[591]|Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productService': Unsatisfied dependency expressed through field 'audienceDOMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.warehouse.dal.mapper.AudienceDOMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-11-06 17:41:48.275| INFO|main|org.apache.catalina.core.StandardService[173]|Stopping service [Tomcat]
+2021-11-06 17:41:48.337|ERROR|main|org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter[40]|
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field audienceDOMapper in com.warehouse.core.service.product.ProductService required a bean of type 'com.warehouse.dal.mapper.AudienceDOMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.warehouse.dal.mapper.AudienceDOMapper' in your configuration.
+
+2021-11-06 17:41:56.192| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7706 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:41:56.195| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:41:57.237| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:41:57.246| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:41:57.246| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:41:57.247| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:41:57.344| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:41:57.345| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1088 ms
+2021-11-06 17:41:57.919| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:41:57.940| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-06 17:41:57.971| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.194 seconds (JVM running for 3.163)
+2021-11-06 17:46:07.363|ERROR|main|org.springframework.boot.SpringApplication[843]|Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@51684e4a - There is no conversion class registered for conversion word [tid]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@51684e4a - [tid] is not a valid conversion word
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:328)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:82)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:63)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:117)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:111)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:62)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:374)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:332)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.warehouse.SelfWarehouseApplication.main(SelfWarehouseApplication.java:13)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@51684e4a - There is no conversion class registered for conversion word [tid]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@51684e4a - [tid] is not a valid conversion word
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:232)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:73)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:132)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:313)
+	... 18 common frames omitted
+2021-11-06 17:46:27.761| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7831 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:46:27.764| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:46:28.649| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:46:28.658| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:46:28.659| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:46:28.659| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:46:28.757| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:46:28.757| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 945 ms
+2021-11-06 17:46:29.266| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:46:29.282| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-06 17:46:29.306| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.877 seconds (JVM running for 2.719)
+2021-11-06 17:46:34.917| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-06 17:46:34.917| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-06 17:46:34.918| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
+2021-11-06 17:46:34.952| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-06 17:46:35.142| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-06 17:50:00.845| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-06 17:50:00.848| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-06 17:50:06.705| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7966 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:50:06.708| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:50:07.885| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:50:07.894| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:50:07.895| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:50:07.895| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:50:08.005| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:50:08.005| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1241 ms
+2021-11-06 17:50:08.547| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:50:08.566| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-06 17:50:08.594| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.238 seconds (JVM running for 3.279)
+2021-11-06 17:50:12.036| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-06 17:50:12.037| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-06 17:50:12.039| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 2 ms
+2021-11-06 17:50:12.077| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-06 17:50:12.236| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-06 17:51:10.088| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-06 17:51:10.092| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-06 17:51:13.292| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 7997 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:51:13.295| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:51:14.278| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:51:14.287| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:51:14.288| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:51:14.288| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:51:14.380| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:51:14.381| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1026 ms
+2021-11-06 17:51:14.918| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:51:14.935| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-06 17:51:14.958| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.035 seconds (JVM running for 2.961)
+2021-11-06 17:51:16.997| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-06 17:51:16.997| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-06 17:51:16.998| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 0 ms
+2021-11-06 17:51:17.027| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-06 17:51:17.182| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-06 17:51:33.916| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-06 17:51:33.923| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-06 17:52:27.495| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 8060 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-06 17:52:27.498| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-06 17:52:28.531| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-06 17:52:28.540| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:52:28.541| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-06 17:52:28.541| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-06 17:52:28.632| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-06 17:52:28.632| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1082 ms
+2021-11-06 17:52:29.219| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-06 17:52:29.238| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-06 17:52:29.267| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.152 seconds (JVM running for 3.05)
+2021-11-06 17:52:55.805| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-06 17:52:55.806| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-06 17:52:55.807| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
+2021-11-06 17:52:55.871| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-06 17:52:56.090| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-06 17:54:46.624| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-06 17:54:46.629| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.

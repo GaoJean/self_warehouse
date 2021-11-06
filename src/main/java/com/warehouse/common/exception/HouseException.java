@@ -1,7 +1,7 @@
-package com.warehouse.common.util.exception;
+package com.warehouse.common.exception;
 
 
-import com.warehouse.common.util.error.ErrorCode;
+import com.warehouse.common.error.ErrorCode;
 
 /**
  * @Description:

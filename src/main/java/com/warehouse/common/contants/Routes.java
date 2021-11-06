@@ -1,4 +1,4 @@
-package com.warehouse.common.util.contants;
+package com.warehouse.common.contants;
 
 /**
  * @Description:

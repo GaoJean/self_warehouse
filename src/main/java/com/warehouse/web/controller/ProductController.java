@@ -1,6 +1,6 @@
 package com.warehouse.web.controller;
 
-import com.warehouse.common.util.contants.Routes;
+import com.warehouse.common.contants.Routes;
 import com.warehouse.core.service.product.ProductService;
 import com.warehouse.data.info.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;

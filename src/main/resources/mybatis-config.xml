@@ -12,7 +12,7 @@
 
     <!-- 插件 -->
     <plugins>
-        <plugin interceptor="com.jeangoo.hanamaki.common.utils.mybatis.MybatisInterceptor"/>
+        <plugin interceptor="com.warehouse.common.util.MybatisInterceptor"/>
         <!-- 分页插件 -->
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
             <!-- 分页插件会自动检测当前的数据库链接，自动选择合适的分页方式。 你可以配置helperDialect属性来指定分页插件使用哪种方言。配置时，可以使用下面的缩写值： 

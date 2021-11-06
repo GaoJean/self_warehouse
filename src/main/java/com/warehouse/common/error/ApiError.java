@@ -1,4 +1,4 @@
-package com.warehouse.common.util.error;
+package com.warehouse.common.error;
 
 /**
  * @Description:
