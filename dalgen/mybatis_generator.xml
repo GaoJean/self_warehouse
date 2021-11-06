@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- Mybatis Generator, 具体使用手册可参考 http://www.mybatis.org/generator/index.html -->
+
+<generatorConfiguration>
+    <properties url="file:///${generated.source.dir}/mybatis_generator.properties"/>
+
+    <!-- context:生成一组对象的环境 1. id:必选，上下文id，用于在生成错误时提示 -->
+    <!-- defaultModelType:指定生成对象的样式 1. conditional：类似hierarchical； 2. flat：所有内容（主键，blob）等全部生成在一个对象中； 3. hierarchical：主键生成一个XXKey对象(key class)，Blob等单独生成一个对象，其他简单属性在一个对象中(record class) -->
+    <!--targetRuntime: 1. MyBatis3：默认的值，生成基于MyBatis3.x以上版本的内容，包括XXXBySample,有selectAll，但是没有insertSelective和updateByPrimaryKeySelective； 2. MyBatis3Simple：类似MyBatis3，只是不生成XXXBySample,没有selectAll； 3. com.doctorwork.mybatis.generator.table.DoctorWorkIntrospectedTable，和MyBatis3Simple类似，增加了selectAll -->
+    <!-- introspectedColumnImpl：类全限定名，用于扩展MBG -->
+    <context id="context1" defaultModelType="conditional"
+             targetRuntime="MyBatis3Simple">
+
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!-- Java模型生成equals和hashcode方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <!-- 序列化插件,为生成的Java模型类添加序列化接口，并生成serialVersionUID字段 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <!-- sqlmapper xml文件覆盖插件，因为<property name="isMergeable" value="false" />不起作用，代码中IntrospectedTableMyBatis3Impl.getGeneratedXmlFiles写死了 -->
+<!--        <plugin type="com.doctorwork.mybatis.generator.plugin.DoctorWorkIsMergeablePlugin"/>-->
+
+        <!-- 注释生成 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
+
+        <!-- Java对象和数据对象的对照解析器 -->
+        <javaTypeResolver>
+            <!-- true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型 false：默认, scale>0;length>18：使用BigDecimal; scale=0;length[10,18]：使用Long； scale=0;length[5,9]：使用Integer； scale=0;length<5：使用Short； -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.warehouse.dal.model"
+                            targetProject="../src/main/java">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成的映射文件位置 -->
+        <sqlMapGenerator targetPackage="sqlmap" targetProject="../src/main/resources"/>
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator targetPackage="com.warehouse.dal.mapper"
+                             targetProject="../src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 选择一个table来生成相关文件，可以有一个或多个table，必须要有table元素 必要： tableName：要生成对象的表名； 可选： domainObjectName：生成的domain类的名字，如果不设置，直接使用表名作为domain类的名字 modelType：参考context元素的defaultModelType，相当于覆盖 -->
+        <!-- 要生成的表,对象都以DO结尾，我们默认生成6个mapper操作 1. insert; 2. selectByPrimaryKey; 3. selectAll; 4. updateByPrimaryKey; 5.insertSelective；6.updateByPrimaryKeySelective。你可以根据需要增加其他语句，但是不建议 -->
+        <table tableName="audience" domainObjectName="AudienceDO"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false" enableCountByExample="false"
+               selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false"
+               delimitIdentifiers="true">
+
+            <!--generatedKey会在生成的insert区域中添加下面的语句，为了获取插入mysql的这一行的id <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long"> SELECT LAST_INSERT_ID() </selectKey> -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+            <!-- ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现 column:指定要忽略的列的名字； (注意，一个table元素中可以有多个ignoreColumn元素) -->
+            <!-- <ignoreColumn column="mediumintType" /> -->
+
+            <!-- columnOverride isGeneratedAlways="true" 在insert和update的语句中不出现对应的字段 和ignoreColumn区别：ignoreColumn在生成的实体对象中都不会出现对应的字段 -->
+            <columnOverride column="is_delete" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_modified" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_create" isGeneratedAlways="true"></columnOverride>
+        </table>
+
+
+    </context>
+</generatorConfiguration>

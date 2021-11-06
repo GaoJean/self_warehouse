@@ -1,0 +1,17 @@
+<project default="genfiles" basedir=".">
+    <property name="generated.source.dir" value="${basedir}"/>
+
+    <target name="genfiles" description="generate mybatis mapper">
+        <path id="lib.path">
+            <fileset dir="./lib/">
+                <include name="**/*jar"/>
+            </fileset>
+        </path>
+        <taskdef name="mbgenerator" classname="org.mybatis.generator.ant.GeneratorAntTask" classpathref="lib.path"/>
+        <mbgenerator overwrite="true" configfile="./mybatis_generator.xml" verbose="true">
+            <propertyset>
+                <propertyref name="generated.source.dir"/>
+            </propertyset>
+        </mbgenerator>
+    </target>
+</project>

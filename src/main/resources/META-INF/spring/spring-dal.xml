@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 主库数据源 -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" primary="true">
+        <!-- 基本属性 url、user、password -->
+        <property name="driverClassName" value="${spring.datasource.driver-class-name}"/>
+        <property name="jdbcUrl" value="${spring.datasource.url}"/>
+        <property name="username" value="${spring.datasource.username}"/>
+        <property name="password" value="${spring.datasource.password}"/>
+        <!-- 从池中获取的连接是否默认处于只读模式 -->
+        <property name="readOnly" value="false"/>
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="minimumIdle" value="1"/>
+        <property name="maximumPoolSize" value="20"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="connectionTimeout" value="60000"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="idleTimeout" value="300000"/>
+        <!-- 校验语句 -->
+        <property name="connectionTestQuery" value="SELECT 1"/>
+        <property name="connectionInitSql" value="set names utf8mb4;"/>
+    </bean>
+
+    <!-- 为Mybatis创建SqlSessionFactory，同时指定数据源 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!-- 在classpath后面的*必不可少，缺少型号的话后面的通配符不起作用。 **表示可以表示任意多级目录，扫描自动和手动的Mapper文件 -->
+        <property name="mapperLocations" value="classpath*:sqlmap/*Mapper.xml"/>
+    </bean>
+
+    <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- <property name="basePackage" value="**.mapper" /> -->
+        <property name="basePackage" value="com.warehouse.dal.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    &lt;!&ndash; 启动注解事务 &ndash;&gt;-->
+<!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+</beans>
+
+
