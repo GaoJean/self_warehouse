@@ -1,16 +1,16 @@
 package com.warehouse.core.service.product;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
+import com.warehouse.dal.mapper.ext.ExtSkuDOMapper;
+import com.warehouse.dal.model.SkuDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.warehouse.dal.mapper.ext.ExtSkuDOMapper;
-import com.warehouse.dal.model.SkuDO;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @Description:
@@ -30,4 +30,9 @@ public class SkuService {
         List<SkuDO> skuList = queryByIds(ids);
         return skuList.stream().collect(Collectors.toMap(SkuDO::getId, Function.identity()));
     }
+
+    public Optional<List<SkuDO>> queryByName(String skuName) {
+        return Optional.of(extSkuMapper.selectByName(skuName));
+    }
+
 }

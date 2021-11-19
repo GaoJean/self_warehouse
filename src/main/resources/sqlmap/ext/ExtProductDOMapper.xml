@@ -33,4 +33,12 @@
       #{id}
     </foreach>
   </select>
+
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from `product`
+    where is_delete = 0
+    <![CDATA[ and product_name like CONCAT('%', #{productName, jdbcType=VARCHAR}, '%') ]]>
+  </select>
 </mapper>

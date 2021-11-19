@@ -1,11 +1,11 @@
 package com.warehouse.dal.model.ext;
 
+import java.util.Collection;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 /**
  * @Description:
@@ -17,8 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExtInventorySearchDO {
-    private String productName;
-    private String skuName;
-    private List<Integer> skuIds;
-    private List<Integer> productIds;
+    private Collection<Long> skuIds;
+    private Collection<Long> productIds;
 }

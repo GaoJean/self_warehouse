@@ -40,4 +40,6 @@ public interface ExtSkuDOMapper {
     int updateByPrimaryKey(SkuDO record);
 
     List<SkuDO> selectByIds(@Param("skuIds") Collection<Long> skuIds);
+
+    List<SkuDO> selectByName(@Param("skuName") String skuName);
 }

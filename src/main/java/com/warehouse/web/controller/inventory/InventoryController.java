@@ -2,13 +2,16 @@ package com.warehouse.web.controller.inventory;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+import com.warehouse.data.form.inventory.InventoryManagementSearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.warehouse.common.contants.Routes;
 import com.warehouse.core.service.inventory.InventoryService;
+import com.warehouse.data.form.inventory.InventoryManagementForm;
 import com.warehouse.data.form.inventory.InventorySearchForm;
 import com.warehouse.web.controller.BaseController;
 import com.warehouse.web.model.HttpResult;
@@ -29,4 +32,15 @@ public class InventoryController extends BaseController {
     public HttpResult list(InventorySearchForm searchForm) {
         return success(inventoryService.list(searchForm));
     }
+
+    @PostMapping(Routes.INVENTORY_MANAGEMENT)
+    public HttpResult management(InventoryManagementForm managementForm) {
+        return success(inventoryService.management(managementForm));
+    }
+
+    @GetMapping(Routes.INVENTORY_MANAGEMENT_LIST)
+    public HttpResult managementList(InventoryManagementSearchForm managementSearchForm) {
+        return success(inventoryService.managementList(managementSearchForm));
+    }
+
 }
