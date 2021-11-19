@@ -95,3 +95,39 @@
 2021-11-19 10:18:53.009|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==>  Preparing: select id, sku_name, cost_price, `status`, unit, is_delete, gmt_create, gmt_modified from `sku` where is_delete = 0 and id in ( ? )
 2021-11-19 10:18:53.009|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==> Parameters: 1(Long)
 2021-11-19 10:18:53.010|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|<==      Total: 1
+2021-11-19 10:24:31.108|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|==>  Preparing: SELECT count(0) FROM `inventory` WHERE is_delete = 0
+2021-11-19 10:24:31.179|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|==> Parameters: 
+2021-11-19 10:24:31.217|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|<==      Total: 1
+2021-11-19 10:24:31.224|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0 LIMIT ?
+2021-11-19 10:24:31.225|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 10(Integer)
+2021-11-19 10:24:31.231|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 1
+2021-11-19 10:24:31.250|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|==>  Preparing: select id, product_name, status, is_delete, gmt_create, gmt_modified from `product` where is_delete = 0 and id in ( ? )
+2021-11-19 10:24:31.251|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|==> Parameters: 1(Long)
+2021-11-19 10:24:31.253|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|<==      Total: 1
+2021-11-19 10:24:31.257|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==>  Preparing: select id, sku_name, cost_price, `status`, unit, is_delete, gmt_create, gmt_modified from `sku` where is_delete = 0 and id in ( ? )
+2021-11-19 10:24:31.258|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==> Parameters: 1(Long)
+2021-11-19 10:24:31.262|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|<==      Total: 1
+2021-11-19 10:24:35.447|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|==>  Preparing: SELECT count(0) FROM `inventory` WHERE is_delete = 0
+2021-11-19 10:24:35.447|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|==> Parameters: 
+2021-11-19 10:24:35.448|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|<==      Total: 1
+2021-11-19 10:24:35.450|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0 LIMIT ?
+2021-11-19 10:24:35.451|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 10(Integer)
+2021-11-19 10:24:35.452|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 1
+2021-11-19 10:24:35.453|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|==>  Preparing: select id, product_name, status, is_delete, gmt_create, gmt_modified from `product` where is_delete = 0 and id in ( ? )
+2021-11-19 10:24:35.453|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|==> Parameters: 1(Long)
+2021-11-19 10:24:35.454|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|<==      Total: 1
+2021-11-19 10:24:35.455|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==>  Preparing: select id, sku_name, cost_price, `status`, unit, is_delete, gmt_create, gmt_modified from `sku` where is_delete = 0 and id in ( ? )
+2021-11-19 10:24:35.456|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==> Parameters: 1(Long)
+2021-11-19 10:24:35.457|DEBUG|http-nio-8088-exec-3|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|<==      Total: 1
+2021-11-19 10:24:38.034|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|==>  Preparing: SELECT count(0) FROM `inventory` WHERE is_delete = 0
+2021-11-19 10:24:38.035|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|==> Parameters: 
+2021-11-19 10:24:38.036|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList_COUNT[137]|<==      Total: 1
+2021-11-19 10:24:38.037|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0 LIMIT ?
+2021-11-19 10:24:38.037|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 10(Integer)
+2021-11-19 10:24:38.039|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 1
+2021-11-19 10:24:38.041|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|==>  Preparing: select id, product_name, status, is_delete, gmt_create, gmt_modified from `product` where is_delete = 0 and id in ( ? )
+2021-11-19 10:24:38.041|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|==> Parameters: 1(Long)
+2021-11-19 10:24:38.043|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtProductDOMapper.selectByIds[137]|<==      Total: 1
+2021-11-19 10:24:38.045|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==>  Preparing: select id, sku_name, cost_price, `status`, unit, is_delete, gmt_create, gmt_modified from `sku` where is_delete = 0 and id in ( ? )
+2021-11-19 10:24:38.045|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|==> Parameters: 1(Long)
+2021-11-19 10:24:38.046|DEBUG|http-nio-8088-exec-4|com.warehouse.dal.mapper.ext.ExtSkuDOMapper.selectByIds[137]|<==      Total: 1

@@ -1285,3 +1285,21 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in 
 2021-11-19 10:18:44.441| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
 2021-11-19 10:18:54.547| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
 2021-11-19 10:18:54.552| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-19 10:24:11.084| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 2562 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-19 10:24:11.095| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-19 10:24:14.533| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-19 10:24:14.548| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-19 10:24:14.548| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-19 10:24:14.549| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-19 10:24:14.716| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-19 10:24:14.717| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 3511 ms
+2021-11-19 10:24:18.878| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-19 10:24:18.944| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-19 10:24:19.002| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 8.705 seconds (JVM running for 10.604)
+2021-11-19 10:24:30.530| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-19 10:24:30.531| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-19 10:24:30.533| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
+2021-11-19 10:24:30.669| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-19 10:24:31.032| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-19 10:24:42.247| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-19 10:24:42.251| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.

@@ -68,7 +68,7 @@ public class InventoryService {
     }
 
     private InventorySearchInfo convert(InventoryDO inventoryDO) {
-        return InventorySearchInfo.newBuilder().id(inventoryDO.getId()).productId(inventoryDO.getProductId())
+        return InventorySearchInfo.builder().id(inventoryDO.getId()).productId(inventoryDO.getProductId())
             .skuId(inventoryDO.getSkuId()).unit(inventoryDO.getUnit()).totalRemaining(inventoryDO.getTotalRemaining())
             .outBoundTimes(inventoryDO.getOutBoundTimes()).outBound(inventoryDO.getOutBound())
             .inBoundTimes(inventoryDO.getInBoundTimes()).inBound(inventoryDO.getInBound())
