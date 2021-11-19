@@ -28,6 +28,7 @@
     from `product`
     where
     is_delete = 0
+    and id in
     <foreach collection="ids" item="id" close=")" open="(" separator=",">
       #{id}
     </foreach>

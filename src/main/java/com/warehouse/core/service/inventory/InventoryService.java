@@ -1,14 +1,5 @@
 package com.warehouse.core.service.inventory;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.warehouse.core.service.product.ProductService;
@@ -19,8 +10,17 @@ import com.warehouse.dal.model.ProductDO;
 import com.warehouse.dal.model.SkuDO;
 import com.warehouse.dal.model.ext.ExtInventorySearchDO;
 import com.warehouse.data.PageResult;
+import com.warehouse.data.convert.InventoryFormConvert;
 import com.warehouse.data.form.inventory.InventorySearchForm;
 import com.warehouse.data.info.inventory.InventorySearchInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Description:
@@ -38,7 +38,7 @@ public class InventoryService {
     private SkuService skuService;
 
     public PageResult<InventorySearchInfo> list(InventorySearchForm searchForm) {
-        ExtInventorySearchDO extInventorySearch = ExtInventorySearchDO.builder().build();
+        ExtInventorySearchDO extInventorySearch = InventoryFormConvert.INSTANCE.fromToDO(searchForm);
         Integer pageNum = searchForm.getPageNum();
         Integer pageSize = searchForm.getPageSize();
         Page<InventoryDO> page = PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> {
@@ -68,7 +68,7 @@ public class InventoryService {
     }
 
     private InventorySearchInfo convert(InventoryDO inventoryDO) {
-        return InventorySearchInfo.builder().id(inventoryDO.getId()).productId(inventoryDO.getProductId())
+        return InventorySearchInfo.newBuilder().id(inventoryDO.getId()).productId(inventoryDO.getProductId())
             .skuId(inventoryDO.getSkuId()).unit(inventoryDO.getUnit()).totalRemaining(inventoryDO.getTotalRemaining())
             .outBoundTimes(inventoryDO.getOutBoundTimes()).outBound(inventoryDO.getOutBound())
             .inBoundTimes(inventoryDO.getInBoundTimes()).inBound(inventoryDO.getInBound())
