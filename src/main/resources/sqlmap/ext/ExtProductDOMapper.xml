@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warehouse.dal.mapper.ext.ExtProductDOMapper">
+  <resultMap id="BaseResultMap" type="com.warehouse.dal.model.ProductDO"
+             extends="com.warehouse.dal.mapper.ProductDOMapper.BaseResultMap">
+  </resultMap>
+  <sql id="Base_Column_List">
+    <include refid="com.warehouse.dal.mapper.ProductDOMapper.Base_Column_List"/>
+  </sql>
+
+  <select id="selectProductList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from `product`
+    where
+    is_delete = 0
+    <if test="extSearchDO != null">
+      <if test="extSearchDO.productName != null and extSearchDO.productName !=''">
+        <![CDATA[ AND product_name LIKE CONCAT('%', #{extSearchDO.productName, jdbcType=VARCHAR}, '%') ]]>
+      </if>
+    </if>
+    order by  gmt_create desc
+  </select>
+
+  <select id="selectByIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from `product`
+    where
+    is_delete = 0
+    <foreach collection="ids" item="id" close=")" open="(" separator=",">
+      #{id}
+    </foreach>
+  </select>
+</mapper>

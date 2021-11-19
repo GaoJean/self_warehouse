@@ -1,12 +1,14 @@
-2021-11-06 17:46:35.149|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==>  Preparing: select 'false' as QUERYID,id, audience_id, audience_name, audience_desc, audience_expression, is_delete, gmt_create, gmt_modified, audience_content from `audience` where id = ?
-2021-11-06 17:46:35.164|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==> Parameters: 1(Long)
-2021-11-06 17:46:35.176|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|<==      Total: 1
-2021-11-06 17:50:12.243|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==>  Preparing: select 'false' as QUERYID,id, audience_id, audience_name, audience_desc, audience_expression, is_delete, gmt_create, gmt_modified, audience_content from `audience` where id = ?
-2021-11-06 17:50:12.258|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==> Parameters: 1(Long)
-2021-11-06 17:50:12.273|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|<==      Total: 1
-2021-11-06 17:51:17.189|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==>  Preparing: select 'false' as QUERYID,id, audience_id, audience_name, audience_desc, audience_expression, is_delete, gmt_create, gmt_modified, audience_content from `audience` where id = ?
-2021-11-06 17:51:17.202|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==> Parameters: 1(Long)
-2021-11-06 17:51:17.214|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|<==      Total: 1
-2021-11-06 17:52:56.099|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==>  Preparing: select 'false' as QUERYID,id, audience_id, audience_name, audience_desc, audience_expression, is_delete, gmt_create, gmt_modified, audience_content from `audience` where id = ?
-2021-11-06 17:52:56.114|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|==> Parameters: 1(Long)
-2021-11-06 17:52:56.126|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.AudienceDOMapper.selectByPrimaryKey[137]|<==      Total: 1
+2021-11-18 22:36:23.295|DEBUG|http-nio-8088-exec-2|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, totalRemaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0
+2021-11-18 22:36:23.317|DEBUG|http-nio-8088-exec-2|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 
+2021-11-18 22:37:23.310|DEBUG|http-nio-8088-exec-2|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0
+2021-11-18 22:37:23.327|DEBUG|http-nio-8088-exec-2|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 
+2021-11-18 22:37:23.339|DEBUG|http-nio-8088-exec-2|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 0
+2021-11-18 22:38:23.761|DEBUG|http-nio-8088-exec-5|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0
+2021-11-18 22:38:23.762|DEBUG|http-nio-8088-exec-5|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 
+2021-11-18 22:38:23.768|DEBUG|http-nio-8088-exec-5|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 1
+2021-11-18 22:38:43.625|DEBUG|http-nio-8088-exec-6|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0
+2021-11-18 22:38:43.626|DEBUG|http-nio-8088-exec-6|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 
+2021-11-18 22:38:43.627|DEBUG|http-nio-8088-exec-6|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 1
+2021-11-18 22:40:58.459|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==>  Preparing: select id, product_id, sku_id, unit, total_remaining, out_bound_times, out_bound, in_bound_times, in_bound, is_delete, gmt_create, gmt_modified from `inventory` where is_delete = 0
+2021-11-18 22:40:58.475|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|==> Parameters: 
+2021-11-18 22:40:58.488|DEBUG|http-nio-8088-exec-1|com.warehouse.dal.mapper.ext.ExtInventoryDOMapper.selectAdminList[137]|<==      Total: 1

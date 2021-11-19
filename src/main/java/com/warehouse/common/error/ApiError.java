@@ -7,7 +7,7 @@ package com.warehouse.common.error;
  */
 public enum ApiError implements ErrorCode {
     SERVER_ERROR(1, "服务异常"), BASE_NOT_FOUND(2, "资源不存在"), BASE_UNAUTHORIZED(3, "未授权"), BASE_FORBIDDEN(4,
-            "拒绝访问"), BASE_BAD_PARAMS(5, "请求参数错误");
+        "拒绝访问"), BASE_BAD_PARAMS(5, "请求参数错误");
 
     private int code;
 

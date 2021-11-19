@@ -1,6 +1,5 @@
 package com.warehouse.common.exception;
 
-
 import com.warehouse.common.error.ErrorCode;
 
 /**

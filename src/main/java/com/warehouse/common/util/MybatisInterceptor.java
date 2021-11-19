@@ -1,5 +1,14 @@
 package com.warehouse.common.util;
 
+import static com.warehouse.common.util.DateUtil.DATE_TIME;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Properties;
+import java.util.regex.Matcher;
+
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -14,61 +23,20 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
-import java.util.regex.Matcher;
-
-import static com.warehouse.common.util.DateUtil.DATE_TIME;
-
 /**
  * @Description:
  * @Author: gaojian@doctorwork.com
  * @Date: 2021/03/04 18:55
  */
 @Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
-        @Signature(type = Executor.class, method = "query",
-                args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class,
-                ResultHandler.class, CacheKey.class, BoundSql.class})})
+    @Signature(type = Executor.class, method = "query",
+        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
+    @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class,
+        ResultHandler.class, CacheKey.class, BoundSql.class})})
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class MybatisInterceptor implements Interceptor {
-    protected Logger logger = LoggerFactory.getLogger("mybatis-whole");
     private static final Integer NUMBER_5 = 5;
-
-    /**
-     * @param invocation 代理对象，被监控方法对象，当前被监控方法运行时需要的实参
-     * @Return:
-     */
-    @Override
-    public Object intercept(Invocation invocation) throws Throwable {
-        Object proceed = invocation.proceed();
-        try {
-            // 获取xml中的一个select/update/insert/delete节点，是一条SQL语句
-            MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
-            BoundSql boundSql = null;
-            // 获取参数，if语句成立，表示sql语句有参数，参数格式是map形式
-            if (invocation.getArgs().length > 1) {
-                if (invocation.getArgs().length >= NUMBER_5) {
-                    boundSql = (BoundSql) invocation.getArgs()[NUMBER_5];
-                } else {
-                    Object parameter = invocation.getArgs()[1];
-                    boundSql = mappedStatement.getBoundSql(parameter);
-                }
-            }
-            // 获取到节点的id,即sql语句的id
-            String sqlId = mappedStatement.getId();
-            Configuration configuration = mappedStatement.getConfiguration();
-            String sql = getSql(configuration, boundSql, sqlId);
-            logger.debug(sql);
-        } catch (Exception e) {
-            // 不影响业务执行不改变原有的sql执行过程
-            logger.error("MybatisInterceptor 补全SQL失败，原因 {}", e.getMessage());
-        }
-        return proceed;
-    }
+    protected Logger logger = LoggerFactory.getLogger("mybatis-whole");
 
     /**
      * @Description: 封装SQL
@@ -141,8 +109,40 @@ public class MybatisInterceptor implements Interceptor {
     }
 
     /**
+     * @param invocation 代理对象，被监控方法对象，当前被监控方法运行时需要的实参
+     * @Return:
+     */
+    @Override
+    public Object intercept(Invocation invocation) throws Throwable {
+        Object proceed = invocation.proceed();
+        try {
+            // 获取xml中的一个select/update/insert/delete节点，是一条SQL语句
+            MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
+            BoundSql boundSql = null;
+            // 获取参数，if语句成立，表示sql语句有参数，参数格式是map形式
+            if (invocation.getArgs().length > 1) {
+                if (invocation.getArgs().length >= NUMBER_5) {
+                    boundSql = (BoundSql) invocation.getArgs()[NUMBER_5];
+                } else {
+                    Object parameter = invocation.getArgs()[1];
+                    boundSql = mappedStatement.getBoundSql(parameter);
+                }
+            }
+            // 获取到节点的id,即sql语句的id
+            String sqlId = mappedStatement.getId();
+            Configuration configuration = mappedStatement.getConfiguration();
+            String sql = getSql(configuration, boundSql, sqlId);
+            logger.debug(sql);
+        } catch (Exception e) {
+            // 不影响业务执行不改变原有的sql执行过程
+            logger.error("MybatisInterceptor 补全SQL失败，原因 {}", e.getMessage());
+        }
+        return proceed;
+    }
+
+    /**
      * @param target 表示被拦截的对象，此处为 Executor 的实例对象 作用：如果被拦截对象所在的类有实现接口，就为当前拦截对象生成一个代理对象
-     *               如果被拦截对象所在的类没有指定接口，这个对象之后的行为就不会被代理操作
+     *        如果被拦截对象所在的类没有指定接口，这个对象之后的行为就不会被代理操作
      * @Return:
      */
     @Override

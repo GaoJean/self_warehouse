@@ -48,10 +48,10 @@
 
     <!-- 映射文件，mapper的配置文件,在{APPID}-dal-db.xml中配置全部扫描，此处不用配置 -->
 
-<!--    <mappers>&lt;!&ndash;直接映射到相应的mapper文件&ndash;&gt;-->
-<!--        <mapper resource="sqlmap/**.xml"/>-->
-<!--        &lt;!&ndash;扫描包路径下所有xxMapper.xml文件&ndash;&gt;-->
-<!--        <package name="com.jeangoo.hanamaki.dal.mapper"/>-->
-<!--    </mappers>-->
+    <!--    <mappers>&lt;!&ndash;直接映射到相应的mapper文件&ndash;&gt;-->
+    <!--        <mapper resource="sqlmap/**.xml"/>-->
+    <!--        &lt;!&ndash;扫描包路径下所有xxMapper.xml文件&ndash;&gt;-->
+    <!--        <package name="com.jeangoo.hanamaki.dal.mapper"/>-->
+    <!--    </mappers>-->
 
 </configuration>

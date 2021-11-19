@@ -27,10 +27,10 @@
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
 
         <!-- 序列化插件,为生成的Java模型类添加序列化接口，并生成serialVersionUID字段 -->
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
 
         <!-- sqlmapper xml文件覆盖插件，因为<property name="isMergeable" value="false" />不起作用，代码中IntrospectedTableMyBatis3Impl.getGeneratedXmlFiles写死了 -->
-<!--        <plugin type="com.doctorwork.mybatis.generator.plugin.DoctorWorkIsMergeablePlugin"/>-->
+        <!--        <plugin type="com.doctorwork.mybatis.generator.plugin.DoctorWorkIsMergeablePlugin"/>-->
 
         <!-- 注释生成 -->
         <commentGenerator>
@@ -65,7 +65,83 @@
 
         <!-- 选择一个table来生成相关文件，可以有一个或多个table，必须要有table元素 必要： tableName：要生成对象的表名； 可选： domainObjectName：生成的domain类的名字，如果不设置，直接使用表名作为domain类的名字 modelType：参考context元素的defaultModelType，相当于覆盖 -->
         <!-- 要生成的表,对象都以DO结尾，我们默认生成6个mapper操作 1. insert; 2. selectByPrimaryKey; 3. selectAll; 4. updateByPrimaryKey; 5.insertSelective；6.updateByPrimaryKeySelective。你可以根据需要增加其他语句，但是不建议 -->
-        <table tableName="audience" domainObjectName="AudienceDO"
+        <table tableName="product" domainObjectName="ProductDO"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false" enableCountByExample="false"
+               selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false"
+               delimitIdentifiers="true">
+
+            <!--generatedKey会在生成的insert区域中添加下面的语句，为了获取插入mysql的这一行的id <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long"> SELECT LAST_INSERT_ID() </selectKey> -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+            <!-- ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现 column:指定要忽略的列的名字； (注意，一个table元素中可以有多个ignoreColumn元素) -->
+            <!-- <ignoreColumn column="mediumintType" /> -->
+
+            <!-- columnOverride isGeneratedAlways="true" 在insert和update的语句中不出现对应的字段 和ignoreColumn区别：ignoreColumn在生成的实体对象中都不会出现对应的字段 -->
+            <columnOverride column="is_delete" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_modified" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_create" isGeneratedAlways="true"></columnOverride>
+        </table>
+        <table tableName="sku" domainObjectName="SkuDO"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false" enableCountByExample="false"
+               selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false"
+               delimitIdentifiers="true">
+
+            <!--generatedKey会在生成的insert区域中添加下面的语句，为了获取插入mysql的这一行的id <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long"> SELECT LAST_INSERT_ID() </selectKey> -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+            <!-- ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现 column:指定要忽略的列的名字； (注意，一个table元素中可以有多个ignoreColumn元素) -->
+            <!-- <ignoreColumn column="mediumintType" /> -->
+
+            <!-- columnOverride isGeneratedAlways="true" 在insert和update的语句中不出现对应的字段 和ignoreColumn区别：ignoreColumn在生成的实体对象中都不会出现对应的字段 -->
+            <columnOverride column="is_delete" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_modified" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_create" isGeneratedAlways="true"></columnOverride>
+        </table>
+        <table tableName="product_sku" domainObjectName="ProductSKUDO"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false" enableCountByExample="false"
+               selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false"
+               delimitIdentifiers="true">
+
+            <!--generatedKey会在生成的insert区域中添加下面的语句，为了获取插入mysql的这一行的id <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long"> SELECT LAST_INSERT_ID() </selectKey> -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+            <!-- ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现 column:指定要忽略的列的名字； (注意，一个table元素中可以有多个ignoreColumn元素) -->
+            <!-- <ignoreColumn column="mediumintType" /> -->
+
+            <!-- columnOverride isGeneratedAlways="true" 在insert和update的语句中不出现对应的字段 和ignoreColumn区别：ignoreColumn在生成的实体对象中都不会出现对应的字段 -->
+            <columnOverride column="is_delete" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_modified" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_create" isGeneratedAlways="true"></columnOverride>
+        </table>
+        <table tableName="inventory" domainObjectName="InventoryDO"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false" enableCountByExample="false"
+               selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false"
+               delimitIdentifiers="true">
+
+            <!--generatedKey会在生成的insert区域中添加下面的语句，为了获取插入mysql的这一行的id <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long"> SELECT LAST_INSERT_ID() </selectKey> -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+            <!-- ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现 column:指定要忽略的列的名字； (注意，一个table元素中可以有多个ignoreColumn元素) -->
+            <!-- <ignoreColumn column="mediumintType" /> -->
+
+            <!-- columnOverride isGeneratedAlways="true" 在insert和update的语句中不出现对应的字段 和ignoreColumn区别：ignoreColumn在生成的实体对象中都不会出现对应的字段 -->
+            <columnOverride column="is_delete" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_modified" isGeneratedAlways="true"></columnOverride>
+            <columnOverride column="gmt_create" isGeneratedAlways="true"></columnOverride>
+        </table>
+        <table tableName="inventory_record" domainObjectName="InventoryRecordDO"
                enableInsert="true" enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true" enableSelectByExample="false"
                enableUpdateByExample="false" enableDeleteByPrimaryKey="false"
