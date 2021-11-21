@@ -12,7 +12,7 @@
     <!--targetRuntime: 1. MyBatis3：默认的值，生成基于MyBatis3.x以上版本的内容，包括XXXBySample,有selectAll，但是没有insertSelective和updateByPrimaryKeySelective； 2. MyBatis3Simple：类似MyBatis3，只是不生成XXXBySample,没有selectAll； 3. com.doctorwork.mybatis.generator.table.DoctorWorkIntrospectedTable，和MyBatis3Simple类似，增加了selectAll -->
     <!-- introspectedColumnImpl：类全限定名，用于扩展MBG -->
     <context id="context1" defaultModelType="conditional"
-             targetRuntime="MyBatis3Simple">
+             targetRuntime="MyBatis3">
 
         <!-- 生成的Java文件的编码 -->
         <property name="javaFileEncoding" value="UTF-8"/>

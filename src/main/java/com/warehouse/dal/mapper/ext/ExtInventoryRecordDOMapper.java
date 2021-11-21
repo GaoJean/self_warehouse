@@ -3,6 +3,7 @@ package com.warehouse.dal.mapper.ext;
 import java.util.List;
 
 import com.warehouse.dal.model.InventoryRecordDO;
+import com.warehouse.dal.model.ext.ExtInventoryRecordSearchDO;
 
 public interface ExtInventoryRecordDOMapper {
     /**
@@ -36,4 +37,6 @@ public interface ExtInventoryRecordDOMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(InventoryRecordDO record);
+
+    List<InventoryRecordDO> selectList(ExtInventoryRecordSearchDO extInventoryRecordSearchDO);
 }

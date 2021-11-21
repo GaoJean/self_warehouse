@@ -1,9 +1,11 @@
 package com.warehouse.data.convert;
 
+import com.warehouse.dal.model.ext.ExtInventoryRecordSearchDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import com.warehouse.dal.model.ext.ExtInventorySearchDO;
+import com.warehouse.data.form.inventory.InventoryRecordSearchForm;
 import com.warehouse.data.form.inventory.InventorySearchForm;
 
 /**
@@ -15,6 +17,8 @@ import com.warehouse.data.form.inventory.InventorySearchForm;
 public interface InventoryFormConvert {
     InventoryFormConvert INSTANCE = Mappers.getMapper(InventoryFormConvert.class);
 
-    ExtInventorySearchDO fromToDO(InventorySearchForm searchForm);
+    ExtInventorySearchDO inventoryFromToDO(InventorySearchForm searchForm);
+
+    ExtInventoryRecordSearchDO inventoryRecordFromToDO(InventoryRecordSearchForm searchForm);
 
 }

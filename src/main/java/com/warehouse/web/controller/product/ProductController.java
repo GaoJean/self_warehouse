@@ -4,7 +4,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +25,7 @@ public class ProductController extends BaseController {
     private ProductService productService;
 
     @GetMapping(value = Routes.PRODUCT_LIST)
-    public HttpResult list(@RequestBody ProductSearchForm productSearchForm) {
+    public HttpResult list(ProductSearchForm productSearchForm) {
         return success(productService.productSearch(productSearchForm));
     }
 }

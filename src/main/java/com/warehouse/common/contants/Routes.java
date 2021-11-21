@@ -24,7 +24,7 @@ public class Routes {
     /** 库存 **/
     public static final String BASE_INVENTORY_ROUTE = "/inventory";
     public static final String INVENTORY_LIST = BASE_INVENTORY_ROUTE + "/list";
-    public static final String INVENTORY_MANAGEMENT = BASE_INVENTORY_ROUTE + "/management";
-    public static final String INVENTORY_MANAGEMENT_LIST = BASE_INVENTORY_ROUTE + "/management/list";
+    public static final String INVENTORY_RECORD = BASE_INVENTORY_ROUTE + "/record";
+    public static final String INVENTORY_RECORD_LIST = BASE_INVENTORY_ROUTE + "/record/list";
 
 }

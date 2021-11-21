@@ -2,16 +2,14 @@ package com.warehouse.web.controller.inventory;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-import com.warehouse.data.form.inventory.InventoryManagementSearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.warehouse.common.contants.Routes;
+import com.warehouse.common.exception.HouseException;
 import com.warehouse.core.service.inventory.InventoryService;
-import com.warehouse.data.form.inventory.InventoryManagementForm;
+import com.warehouse.data.form.inventory.InventoryRecordForm;
+import com.warehouse.data.form.inventory.InventoryRecordSearchForm;
 import com.warehouse.data.form.inventory.InventorySearchForm;
 import com.warehouse.web.controller.BaseController;
 import com.warehouse.web.model.HttpResult;
@@ -33,14 +31,14 @@ public class InventoryController extends BaseController {
         return success(inventoryService.list(searchForm));
     }
 
-    @PostMapping(Routes.INVENTORY_MANAGEMENT)
-    public HttpResult management(InventoryManagementForm managementForm) {
-        return success(inventoryService.management(managementForm));
+    @PostMapping(Routes.INVENTORY_RECORD)
+    public HttpResult record(@RequestBody InventoryRecordForm inventoryRecordForm) throws HouseException {
+        return success(inventoryService.record(inventoryRecordForm));
     }
 
-    @GetMapping(Routes.INVENTORY_MANAGEMENT_LIST)
-    public HttpResult managementList(InventoryManagementSearchForm managementSearchForm) {
-        return success(inventoryService.managementList(managementSearchForm));
+    @GetMapping(Routes.INVENTORY_RECORD_LIST)
+    public HttpResult recordList(InventoryRecordSearchForm recordSearchForm) {
+        return success(inventoryService.recordList(recordSearchForm));
     }
 
 }
