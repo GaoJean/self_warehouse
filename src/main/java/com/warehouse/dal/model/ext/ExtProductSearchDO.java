@@ -15,7 +15,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExtProductSearchDO {
-    private String startTime;
-    private String endTime;
     private String productName;
 }
