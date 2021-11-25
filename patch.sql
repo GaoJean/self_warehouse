@@ -136,26 +136,45 @@ INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'kg','kg');
 INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN25','个');
 INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN32','个');
 INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN40','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN50','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN65','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN80','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN100','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN150','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN65-普通栓','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN65-减压栓','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( '650*240*700','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN15','个');
-INSERT INTO `inventory`.`sku` ( `sku_name`,`unit` ) VALUES ( 'DN15','个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN50', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN65', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN80', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN100', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN150', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN65-普通栓', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN65-减压栓', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('650*240*700', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN15', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('DN15', '个');
+INSERT INTO `inventory`.`sku` (`sku_name`, `unit`)
+VALUES ('生料带', '个');
 
 
 
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','1');
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','2');
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','3');
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','4');
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','5');
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','6');
-INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '1','7');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '1');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '2');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '3');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '4');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '5');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '6');
+INSERT INTO `inventory`.`product_sku` (`product_id`, `sku_id`)
+VALUES ('1', '7');
 INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '2','8');
 INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '2','9');
 INSERT INTO `inventory`.`product_sku` ( `product_id`,`sku_id` ) VALUES ( '2','10');

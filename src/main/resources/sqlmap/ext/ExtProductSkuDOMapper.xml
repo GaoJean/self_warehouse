@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warehouse.dal.mapper.ext.ExtProductSkuDOMapper">
+  <resultMap id="BaseResultMap" type="com.warehouse.dal.model.ProductSkuDO"
+             extends="com.warehouse.dal.mapper.ProductDOMapper.BaseResultMap">
+
+  </resultMap>
+  <sql id="Base_Column_List">
+    <include refid="com.warehouse.dal.mapper.ProductSkuDOMapper.Base_Column_List"/>
+  </sql>
+
+  <resultMap id="BaseJoinResultMap" type="com.warehouse.dal.model.ext.ExtProductSkuJoinDO">
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="product_id" jdbcType="BIGINT" property="productId"/>
+    <result column="sku_id" jdbcType="BIGINT" property="skuId"/>
+    <result column="product_name" jdbcType="VARCHAR" property="productName"/>
+    <result column="sku_name" jdbcType="VARCHAR" property="skuName"/>
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete"/>
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+  </resultMap>
+
+  <sql id="Base_join_Column_List">
+    ps.id,
+	ps.product_id,
+	ps.sku_id,
+	p.product_name,
+	s.sku_name,
+	ps.is_delete,
+	ps.gmt_create,
+	ps.gmt_modified
+  </sql>
+
+  <select id="selectJoinProductSku" resultMap="BaseJoinResultMap">
+    select
+    <include refid="Base_join_Column_List"/>
+    from product_sku AS ps
+    LEFT JOIN product AS p ON p.id = ps.product_id
+    LEFT JOIN sku AS s ON s.id = ps.sku_id
+    WHERE
+    ps.is_delete = 0
+    AND p.is_delete = 0
+    AND s.is_delete = 0
+    <if test="productName!=null and productName !=''">
+      <![CDATA[ AND p.product_name LIKE CONCAT('%', #{productName, jdbcType=VARCHAR}, '%') ]]>
+    </if>
+    <if test="skuName!=null and skuName !=''">
+      <![CDATA[AND s.sku_name LIKE CONCAT('%', #{skuName, jdbcType=VARCHAR}, '%') ]]>
+    </if>
+    ORDER BY
+    ps.id DESC,
+    ps.gmt_create
+  </select>
+
+</mapper>

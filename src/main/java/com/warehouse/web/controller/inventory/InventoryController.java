@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.warehouse.common.contants.Routes;
-import com.warehouse.common.exception.HouseException;
 import com.warehouse.core.service.inventory.InventoryService;
 import com.warehouse.data.form.inventory.InventoryRecordForm;
 import com.warehouse.data.form.inventory.InventoryRecordSearchForm;
@@ -27,17 +26,17 @@ public class InventoryController extends BaseController {
     private InventoryService inventoryService;
 
     @GetMapping(Routes.INVENTORY_LIST)
-    public HttpResult list(InventorySearchForm searchForm) {
+    public HttpResult list(InventorySearchForm searchForm) throws Exception {
         return success(inventoryService.list(searchForm));
     }
 
     @PostMapping(Routes.INVENTORY_RECORD)
-    public HttpResult record(@RequestBody InventoryRecordForm inventoryRecordForm) throws HouseException {
+    public HttpResult record(@RequestBody InventoryRecordForm inventoryRecordForm) throws Exception {
         return success(inventoryService.record(inventoryRecordForm));
     }
 
     @GetMapping(Routes.INVENTORY_RECORD_LIST)
-    public HttpResult recordList(InventoryRecordSearchForm recordSearchForm) {
+    public HttpResult recordList(InventoryRecordSearchForm recordSearchForm) throws Exception {
         return success(inventoryService.recordList(recordSearchForm));
     }
 

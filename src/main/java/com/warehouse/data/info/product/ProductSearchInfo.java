@@ -1,11 +1,10 @@
 package com.warehouse.data.info.product;
 
-import lombok.Builder;
-import lombok.Data;
-
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+
+import lombok.Builder;
+import lombok.Data;
 
 /**
  * @Description:
@@ -17,16 +16,12 @@ import java.util.List;
 public class ProductSearchInfo implements Serializable {
     private static final long serialVersionUID = 3121279729838525530L;
     private Long id;
-
+    private Long productId;
+    private Long skuId;
     private String productName;
-
-    private Byte status;
-
+    private String skuName;
     private Byte isDelete;
-
     private Date gmtCreate;
-
     private Date gmtModified;
 
-    private List<SkuInfo> skuInfos;
 }

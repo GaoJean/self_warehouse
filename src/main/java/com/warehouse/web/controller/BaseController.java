@@ -1,5 +1,9 @@
 package com.warehouse.web.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.warehouse.common.error.ErrorCode;
 import com.warehouse.web.model.HttpResult;
 
@@ -9,6 +13,10 @@ import com.warehouse.web.model.HttpResult;
  * @Date: 2021/11/18 21:55
  */
 public class BaseController {
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
+
+    public static final ObjectMapper MAPPER = new ObjectMapper();
 
     public BaseController() {
     }

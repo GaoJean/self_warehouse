@@ -103,7 +103,7 @@
             <columnOverride column="gmt_modified" isGeneratedAlways="true"></columnOverride>
             <columnOverride column="gmt_create" isGeneratedAlways="true"></columnOverride>
         </table>
-        <table tableName="product_sku" domainObjectName="ProductSKUDO"
+        <table tableName="product_sku" domainObjectName="ProductSkuDO"
                enableInsert="true" enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true" enableSelectByExample="false"
                enableUpdateByExample="false" enableDeleteByPrimaryKey="false"

@@ -1,932 +1,190 @@
-2021-11-21 15:47:38.396| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4488 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 15:47:38.400| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 15:47:39.250| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 15:47:39.258| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 15:47:39.259| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 15:47:39.259| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 15:47:39.336| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 15:47:39.336| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 894 ms
-2021-11-21 15:47:39.956| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 15:47:39.978| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 15:47:40.001| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.959 seconds (JVM running for 3.571)
-2021-11-21 15:50:43.841| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 15:50:43.842| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 15:50:43.844| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 2 ms
-2021-11-21 15:50:43.903|ERROR|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError] with root cause
-java.lang.ClassNotFoundException: Cannot find implementation for com.warehouse.data.convert.InventoryFormConvert
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:75)
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:58)
-	at com.warehouse.data.convert.InventoryFormConvert.<clinit>(InventoryFormConvert.java:18)
-	at com.warehouse.core.service.inventory.InventoryService.toInventorySearchCondition(InventoryService.java:96)
-	at com.warehouse.core.service.inventory.InventoryService.list(InventoryService.java:65)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$8a2bf59e.list(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.list(InventoryController.java:34)
+2021-11-25 21:09:51.132| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 18131 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-25 21:09:51.137| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-25 21:09:52.154| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-25 21:09:52.165| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:09:52.166| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-25 21:09:52.166| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 21:09:52.259| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-25 21:09:52.259| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1067 ms
+2021-11-25 21:09:52.601| WARN|main|org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext[591]|Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'inventoryService': Unsatisfied dependency expressed through field 'extInventoryMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'extInventoryDOMapper' defined in file [/Users/gaojian/work/practice/workspace/self_warehouse/target/classes/com/warehouse/dal/mapper/ext/ExtInventoryDOMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO (wrong name: com/warehouse/dal/model/ProductSKUDO)
+2021-11-25 21:09:52.603| INFO|main|org.apache.catalina.core.StandardService[173]|Stopping service [Tomcat]
+2021-11-25 21:09:52.652|ERROR|main|org.springframework.boot.SpringApplication[843]|Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'inventoryService': Unsatisfied dependency expressed through field 'extInventoryMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'extInventoryDOMapper' defined in file [/Users/gaojian/work/practice/workspace/self_warehouse/target/classes/com/warehouse/dal/mapper/ext/ExtInventoryDOMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO (wrong name: com/warehouse/dal/model/ProductSKUDO)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.warehouse.SelfWarehouseApplication.main(SelfWarehouseApplication.java:12)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'extInventoryDOMapper' defined in file [/Users/gaojian/work/practice/workspace/self_warehouse/target/classes/com/warehouse/dal/mapper/ext/ExtInventoryDOMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO (wrong name: com/warehouse/dal/model/ProductSKUDO)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1534)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO (wrong name: com/warehouse/dal/model/ProductSKUDO)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1519)
+	... 31 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO (wrong name: com/warehouse/dal/model/ProductSKUDO)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 44 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO (wrong name: com/warehouse/dal/model/ProductSKUDO)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:621)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:579)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:186)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:263)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:254)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:246)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:119)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:610)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:490)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:632)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:179)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$1a78e77.CGLIB$sqlSessionFactory$2(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$1a78e77$$FastClassBySpringCGLIB$$9597bb46.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$1a78e77.sqlSessionFactory(<generated>)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 15:51:25.397| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4582 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 15:51:25.400| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 15:51:26.493| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 15:51:26.505| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 15:51:26.506| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 15:51:26.506| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 15:51:26.621| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 15:51:26.622| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1171 ms
-2021-11-21 15:51:27.378| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 15:51:27.403| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 15:51:27.430| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.508 seconds (JVM running for 3.541)
-2021-11-21 15:51:32.962| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 15:51:32.963| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 15:51:32.964| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 15:51:33.008|ERROR|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError] with root cause
-java.lang.ClassNotFoundException: Cannot find implementation for com.warehouse.data.convert.InventoryFormConvert
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:75)
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:58)
-	at com.warehouse.data.convert.InventoryFormConvert.<clinit>(InventoryFormConvert.java:18)
-	at com.warehouse.core.service.inventory.InventoryService.toInventorySearchCondition(InventoryService.java:96)
-	at com.warehouse.core.service.inventory.InventoryService.list(InventoryService.java:65)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$5e6025b8.list(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.list(InventoryController.java:34)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 15:53:00.968| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4618 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 15:53:00.970| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 15:53:01.674| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 15:53:01.682| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 15:53:01.682| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 15:53:01.682| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 15:53:01.755| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 15:53:01.756| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 735 ms
-2021-11-21 15:53:02.289| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 15:53:02.311| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 15:53:02.337| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.678 seconds (JVM running for 2.356)
-2021-11-21 15:53:04.705| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 15:53:04.706| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 15:53:04.707| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 15:53:04.752|ERROR|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError] with root cause
-java.lang.ClassNotFoundException: Cannot find implementation for com.warehouse.data.convert.InventoryFormConvert
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:75)
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:58)
-	at com.warehouse.data.convert.InventoryFormConvert.<clinit>(InventoryFormConvert.java:18)
-	at com.warehouse.core.service.inventory.InventoryService.toInventorySearchCondition(InventoryService.java:96)
-	at com.warehouse.core.service.inventory.InventoryService.list(InventoryService.java:65)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$d4c4631c.list(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.list(InventoryController.java:34)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:01:45.388| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4717 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:01:45.390| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:01:46.249| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:01:46.257| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:01:46.258| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:01:46.258| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:01:46.346| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:01:46.347| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 904 ms
-2021-11-21 16:01:46.964| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:01:46.985| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:01:47.006| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.943 seconds (JVM running for 2.697)
-2021-11-21 16:01:53.476| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:01:53.477| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:01:53.478| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:01:53.526|ERROR|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError] with root cause
-java.lang.ClassNotFoundException: Cannot find implementation for com.warehouse.data.convert.InventoryFormConvert
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:75)
-	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:58)
-	at com.warehouse.data.convert.InventoryFormConvert.<clinit>(InventoryFormConvert.java:18)
-	at com.warehouse.core.service.inventory.InventoryService.toInventorySearchCondition(InventoryService.java:96)
-	at com.warehouse.core.service.inventory.InventoryService.list(InventoryService.java:65)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$e7eb1208.list(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.list(InventoryController.java:34)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:03:11.657| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4747 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:03:11.659| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:03:12.508| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:03:12.517| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:03:12.517| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:03:12.518| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:03:12.607| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:03:12.608| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 902 ms
-2021-11-21 16:03:13.213| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:03:13.235| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:03:13.258| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.929 seconds (JVM running for 3.03)
-2021-11-21 16:03:16.889| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:03:16.890| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:03:16.891| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:03:16.956| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:03:17.125| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:04:15.536| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:04:15.538| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:07:09.207| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4769 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:07:09.211| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:07:10.543| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:07:10.556| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:07:10.557| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:07:10.558| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:07:10.684| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:07:10.685| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1407 ms
-2021-11-21 16:07:11.554| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:07:11.585| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:07:11.622| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 3.027 seconds (JVM running for 4.416)
-2021-11-21 16:07:17.765| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:07:17.766| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:07:17.767| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:07:17.871| WARN|http-nio-8088-exec-2|org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver[208]|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('i' (code 105)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('i' (code 105)): was expecting comma to separate Object entries<LF> at [Source: (PushbackInputStream); line: 8, column: 18]]
-2021-11-21 16:07:41.302| INFO|http-nio-8088-exec-4|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:07:41.584| INFO|http-nio-8088-exec-4|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:07:41.726|ERROR|http-nio-8088-exec-4|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.warehouse.common.exception.HouseException: 操作类型错误] with root cause
-com.warehouse.common.exception.HouseException: 操作类型错误
-	at com.warehouse.core.service.inventory.InventoryService.updateInventory(InventoryService.java:144)
-	at com.warehouse.core.service.inventory.InventoryService.record(InventoryService.java:135)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$d9b3b3a8.record(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.record(InventoryController.java:36)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:08:07.038|ERROR|http-nio-8088-exec-6|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.warehouse.common.exception.HouseException: 操作类型错误] with root cause
-com.warehouse.common.exception.HouseException: 操作类型错误
-	at com.warehouse.core.service.inventory.InventoryService.updateInventory(InventoryService.java:144)
-	at com.warehouse.core.service.inventory.InventoryService.record(InventoryService.java:135)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$d9b3b3a8.record(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.record(InventoryController.java:36)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:08:07.186| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:08:07.194| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:12:03.791| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4804 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:12:03.793| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:12:04.638| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:12:04.646| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:12:04.647| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:12:04.647| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:12:04.729| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:12:04.729| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 867 ms
-2021-11-21 16:12:05.334| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:12:05.356| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:12:05.381| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.949 seconds (JVM running for 2.948)
-2021-11-21 16:12:09.058| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:12:09.058| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:12:09.059| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:12:09.166| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:12:09.343| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:12:17.240|ERROR|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'unit' in 'class com.warehouse.dal.model.ext.ExtInventoryUpdateDO'] with root cause
-org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'unit' in 'class com.warehouse.dal.model.ext.ExtInventoryUpdateDO'
-	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:375)
-	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:164)
-	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:162)
-	at org.apache.ibatis.reflection.wrapper.BeanWrapper.get(BeanWrapper.java:49)
-	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:122)
-	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:102)
-	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:113)
-	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:3373)
-	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:121)
-	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
-	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258)
-	at org.apache.ibatis.ognl.ASTNotEq.getValueBody(ASTNotEq.java:50)
-	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
-	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:586)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:550)
-	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:46)
-	at org.apache.ibatis.scripting.xmltags.ExpressionEvaluator.evaluateBoolean(ExpressionEvaluator.java:32)
-	at org.apache.ibatis.scripting.xmltags.IfSqlNode.apply(IfSqlNode.java:34)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.lambda$apply$0(MixedSqlNode.java:32)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:32)
-	at org.apache.ibatis.scripting.xmltags.TrimSqlNode.apply(TrimSqlNode.java:55)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.lambda$apply$0(MixedSqlNode.java:32)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:32)
-	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:39)
-	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:305)
-	at org.apache.ibatis.executor.statement.BaseStatementHandler.<init>(BaseStatementHandler.java:64)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.<init>(PreparedStatementHandler.java:41)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.<init>(RoutingStatementHandler.java:46)
-	at org.apache.ibatis.session.Configuration.newStatementHandler(Configuration.java:658)
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:48)
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
-	at com.warehouse.common.util.MybatisInterceptor.intercept(MybatisInterceptor.java:117)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62)
-	at com.sun.proxy.$Proxy76.update(Unknown Source)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:64)
-	at com.sun.proxy.$Proxy76.update(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:194)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
-	at com.sun.proxy.$Proxy56.update(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:287)
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67)
-	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
-	at com.sun.proxy.$Proxy57.updateInventory(Unknown Source)
-	at com.warehouse.core.service.inventory.InventoryService.updateInventory(InventoryService.java:162)
-	at com.warehouse.core.service.inventory.InventoryService.record(InventoryService.java:135)
-	at com.warehouse.core.service.inventory.InventoryService$$FastClassBySpringCGLIB$$2198305b.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
-	at com.warehouse.core.service.inventory.InventoryService$$EnhancerBySpringCGLIB$$5e07b5f2.record(<generated>)
-	at com.warehouse.web.controller.inventory.InventoryController.record(InventoryController.java:36)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:13:22.839| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:13:22.842| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:13:26.391| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4824 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:13:26.394| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:13:27.278| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:13:27.286| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:13:27.287| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:13:27.287| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:13:27.372| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:13:27.372| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 933 ms
-2021-11-21 16:13:27.980| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:13:28.000| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:13:28.021| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.956 seconds (JVM running for 2.655)
-2021-11-21 16:13:31.373| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:13:31.373| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:13:31.374| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:13:31.463| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:13:31.625| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:18:47.978| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:18:47.981| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:23:14.236| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4884 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:23:14.239| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:23:15.152| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:23:15.161| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:23:15.162| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:23:15.162| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:23:15.250| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:23:15.250| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 967 ms
-2021-11-21 16:23:15.852| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:23:15.873| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:23:15.896| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.018 seconds (JVM running for 2.913)
-2021-11-21 16:23:40.835| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:23:40.835| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:23:40.836| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:23:40.903| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:23:41.059| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:26:36.645| WARN|DateSourceHikariCP housekeeper|com.zaxxer.hikari.pool.HikariPool[787]|DateSourceHikariCP - Thread starvation or clock leap detected (housekeeper delta=55s472ms).
-2021-11-21 16:29:00.455| WARN|DateSourceHikariCP housekeeper|com.zaxxer.hikari.pool.HikariPool[787]|DateSourceHikariCP - Thread starvation or clock leap detected (housekeeper delta=1m13s627ms).
-2021-11-21 16:29:00.549| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:29:00.569| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:31:42.767| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4938 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:31:42.770| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:31:43.635| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:31:43.644| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:31:43.644| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:31:43.644| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:31:43.735| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:31:43.736| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 919 ms
-2021-11-21 16:31:44.328| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:31:44.351| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:31:44.376| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.946 seconds (JVM running for 2.751)
-2021-11-21 16:31:50.735| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:31:50.736| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:31:50.737| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:32:07.030| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:32:07.626| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:33:13.520| WARN|DateSourceHikariCP housekeeper|com.zaxxer.hikari.pool.HikariPool[787]|DateSourceHikariCP - Thread starvation or clock leap detected (housekeeper delta=1m5s792ms).
-2021-11-21 16:33:13.609| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:33:13.615| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:33:17.398| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 4953 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:33:17.401| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:33:18.203| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:33:18.210| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:33:18.211| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:33:18.211| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:33:18.289| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:33:18.290| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 841 ms
-2021-11-21 16:33:18.857| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:33:18.876| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:33:18.897| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.87 seconds (JVM running for 2.709)
-2021-11-21 16:33:21.600| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:33:21.600| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:33:21.601| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:33:25.911| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:33:26.482| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:34:51.848| WARN|DateSourceHikariCP housekeeper|com.zaxxer.hikari.pool.HikariPool[787]|DateSourceHikariCP - Thread starvation or clock leap detected (housekeeper delta=1m25s264ms).
-2021-11-21 16:34:51.924| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:34:51.929| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:43:20.216| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 5011 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:43:20.219| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:43:21.108| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:43:21.116| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:43:21.117| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:43:21.117| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:43:21.204| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:43:21.204| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 945 ms
-2021-11-21 16:43:21.836| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:43:21.857| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:43:21.881| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.989 seconds (JVM running for 2.769)
-2021-11-21 16:43:24.650| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:43:24.651| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:43:24.652| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:43:27.632| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:43:28.218| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:43:36.795| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:43:36.799| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:43:50.056| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 5032 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:43:50.059| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:43:50.958| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:43:50.966| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:43:50.967| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:43:50.967| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:43:51.052| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:43:51.053| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 950 ms
-2021-11-21 16:43:51.726| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:43:51.750| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:43:51.775| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.068 seconds (JVM running for 2.947)
-2021-11-21 16:44:13.980| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:44:13.981| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:44:13.982| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:44:17.327| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:44:17.490| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:44:52.066| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:44:52.070| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:45:35.899| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 5056 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:45:35.903| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:45:36.810| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:45:36.819| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:45:36.819| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:45:36.819| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:45:36.913| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:45:36.913| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 943 ms
-2021-11-21 16:45:37.479| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:45:37.498| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:45:37.519| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.052 seconds (JVM running for 3.083)
-2021-11-21 16:46:07.093| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:46:07.094| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:46:07.095| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:46:07.121| WARN|http-nio-8088-exec-1|org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver[208]|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.warehouse.web.model.HttpResult com.warehouse.web.controller.product.ProductController.list(com.warehouse.data.form.product.ProductSearchForm)]
-2021-11-21 16:46:23.921| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 5070 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:46:23.924| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:46:24.796| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:46:24.806| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:46:24.806| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:46:24.807| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:46:24.896| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:46:24.897| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 931 ms
-2021-11-21 16:46:25.488| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:46:25.511| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:46:25.536| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.962 seconds (JVM running for 2.718)
-2021-11-21 16:46:51.613| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 5077 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:46:51.616| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:46:52.370| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:46:52.378| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:46:52.378| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:46:52.378| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:46:52.457| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:46:52.458| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 804 ms
-2021-11-21 16:46:52.992| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:46:53.013| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:46:53.034| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.763 seconds (JVM running for 2.514)
-2021-11-21 16:47:00.695| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:47:00.696| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:47:00.697| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 0 ms
-2021-11-21 16:47:00.756| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:47:00.914| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:47:01.041|ERROR|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.warehouse.data.info.product.ProductSearchInfo]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.warehouse.data.info.product.ProductSearchInfo and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.warehouse.web.model.HttpResult["data"]->com.warehouse.data.PageResult["list"]->java.util.ArrayList[0])] with root cause
-com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.warehouse.data.info.product.ProductSearchInfo and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.warehouse.web.model.HttpResult["data"]->com.warehouse.data.PageResult["list"]->java.util.ArrayList[0])
-	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
-	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1276)
-	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400)
-	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:71)
-	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:33)
-	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
-	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
-	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
-	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
-	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
-	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
-	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
-	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
-	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
-	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1514)
-	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1006)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:454)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:47:45.602|ERROR|http-nio-8088-exec-4|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet][175]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.warehouse.data.info.product.ProductSearchInfo]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.warehouse.data.info.product.ProductSearchInfo and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.warehouse.web.model.HttpResult["data"]->com.warehouse.data.PageResult["list"]->java.util.ArrayList[0])] with root cause
-com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.warehouse.data.info.product.ProductSearchInfo and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.warehouse.web.model.HttpResult["data"]->com.warehouse.data.PageResult["list"]->java.util.ArrayList[0])
-	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
-	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1276)
-	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400)
-	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:71)
-	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:33)
-	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serializeContents(IndexedListSerializer.java:119)
-	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:79)
-	at com.fasterxml.jackson.databind.ser.impl.IndexedListSerializer.serialize(IndexedListSerializer.java:18)
-	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
-	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
-	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
-	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
-	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
-	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
-	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1514)
-	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1006)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:454)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2021-11-21 16:47:45.681| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:47:45.685| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
-2021-11-21 16:51:03.441| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 5121 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
-2021-11-21 16:51:03.444| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
-2021-11-21 16:51:04.321| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
-2021-11-21 16:51:04.329| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:51:04.330| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
-2021-11-21 16:51:04.330| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-21 16:51:04.413| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
-2021-11-21 16:51:04.413| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 918 ms
-2021-11-21 16:51:05.000| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
-2021-11-21 16:51:05.023| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
-2021-11-21 16:51:05.045| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 1.997 seconds (JVM running for 2.977)
-2021-11-21 16:51:08.042| INFO|http-nio-8088-exec-2|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-21 16:51:08.043| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
-2021-11-21 16:51:08.044| INFO|http-nio-8088-exec-2|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
-2021-11-21 16:51:08.130| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
-2021-11-21 16:51:08.293| INFO|http-nio-8088-exec-2|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
-2021-11-21 16:53:14.230| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
-2021-11-21 16:53:14.233| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 45 common frames omitted
+2021-11-25 21:10:50.138| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 18159 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-25 21:10:50.140| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-25 21:10:51.064| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-25 21:10:51.073| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:10:51.073| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-25 21:10:51.073| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 21:10:51.159| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-25 21:10:51.160| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 976 ms
+2021-11-25 21:10:51.803| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:10:51.826| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-25 21:10:51.849| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.043 seconds (JVM running for 2.84)
+2021-11-25 21:13:12.812| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-25 21:13:12.813| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-25 21:13:12.814| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 0 ms
+2021-11-25 21:13:12.832| WARN|http-nio-8088-exec-1|org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver[208]|Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-11-25 21:13:52.122| WARN|http-nio-8088-exec-3|org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver[208]|Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-11-25 21:13:58.954| INFO|http-nio-8088-exec-5|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-25 21:13:59.126| INFO|http-nio-8088-exec-5|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-25 21:15:17.611| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-25 21:15:17.616| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-25 21:23:28.600| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 18331 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-25 21:23:28.603| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-25 21:23:29.561| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-25 21:23:29.571| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:23:29.572| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-25 21:23:29.572| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 21:23:29.664| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-25 21:23:29.665| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1019 ms
+2021-11-25 21:23:30.468| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:23:30.497| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-25 21:23:30.525| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.322 seconds (JVM running for 3.366)
+2021-11-25 21:23:35.205| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-25 21:23:35.206| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-25 21:23:35.207| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
+2021-11-25 21:23:35.299| INFO|http-nio-8088-exec-1|com.warehouse.web.controller.BaseController[30]|/product/list入参：{"pageNum":1,"pageSize":10,"productName":null,"skuName":"15"}
+2021-11-25 21:23:35.329| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-25 21:23:35.500| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-25 21:26:35.404| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-25 21:26:35.408| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-25 21:49:39.596| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 18922 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-25 21:49:39.599| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-25 21:49:40.508| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-25 21:49:40.517| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:49:40.518| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-25 21:49:40.518| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 21:49:40.611| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-25 21:49:40.611| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 963 ms
+2021-11-25 21:49:41.251| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:49:41.275| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-25 21:49:41.300| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.124 seconds (JVM running for 3.16)
+2021-11-25 21:49:46.916| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-25 21:49:46.917| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-25 21:49:46.919| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 2 ms
+2021-11-25 21:49:46.986| INFO|http-nio-8088-exec-1|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 21:49:47.026| INFO|http-nio-8088-exec-1|com.warehouse.web.controller.BaseController[30]|/product/list入参：{"pageNum":1,"pageSize":10,"productName":null,"skuName":"15"}
+2021-11-25 21:49:47.062| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-25 21:49:47.259| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-25 21:49:47.380| INFO|http-nio-8088-exec-1|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"","response":"","setCookie":null,"cost":"451ms"}
+2021-11-25 21:54:41.775| INFO|http-nio-8088-exec-3|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 21:54:41.777| INFO|http-nio-8088-exec-3|com.warehouse.web.controller.BaseController[30]|/product/list入参：{"pageNum":1,"pageSize":10,"productName":null,"skuName":"15"}
+2021-11-25 21:54:41.791| INFO|http-nio-8088-exec-3|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"","response":"","setCookie":null,"cost":"16ms"}
+2021-11-25 21:54:44.843| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-25 21:54:44.846| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-25 21:54:49.528| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 18978 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-25 21:54:49.530| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-25 21:54:50.450| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-25 21:54:50.458| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:54:50.458| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-25 21:54:50.458| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 21:54:50.546| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-25 21:54:50.546| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 957 ms
+2021-11-25 21:54:51.202| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-25 21:54:51.225| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-25 21:54:51.250| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.113 seconds (JVM running for 3.106)
+2021-11-25 21:54:53.533| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-25 21:54:53.533| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-25 21:54:53.534| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 0 ms
+2021-11-25 21:55:19.644| INFO|http-nio-8088-exec-1|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"127.0.0.1","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 21:55:19.713| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-25 21:55:19.874| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-25 21:55:26.745| INFO|http-nio-8088-exec-1|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"33202ms"}
+2021-11-25 21:55:33.513| INFO|http-nio-8088-exec-2|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"127.0.0.1","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 21:55:58.234| INFO|http-nio-8088-exec-2|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"28827ms"}
+2021-11-25 21:55:58.374| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-25 21:55:58.377| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.

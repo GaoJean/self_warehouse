@@ -15,5 +15,6 @@ import lombok.Data;
 public class ProductSearchForm extends BaseSearchForm {
     private static final long serialVersionUID = -7796556415976010534L;
     private String productName;
+    private String skuName;
 
 }
