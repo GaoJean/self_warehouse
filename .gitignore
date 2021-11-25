@@ -1,35 +1,37 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+*.class
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+!dalgen/lib/*.jar
+*.war
+*.ear
+*.log
 .settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
+.settings/*
+.classpath
+.project
 logs
+tmp
+target
+target/*
+.apt_generated
+.apt_generated/*
+.factorypath
+.factorypath/*
+.springBeans
+.springBeans/*
+*.idea
+/*.idea
+*.iml
+/*.iml
+.DS_Store
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# maven flatten & versions plugin
+.flattened-pom.xml
+pom.xml.versionsBackup
