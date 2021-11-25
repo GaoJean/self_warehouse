@@ -188,3 +188,27 @@ Caused by: java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO 
 2021-11-25 21:55:58.234| INFO|http-nio-8088-exec-2|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"28827ms"}
 2021-11-25 21:55:58.374| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
 2021-11-25 21:55:58.377| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-25 22:19:34.356| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on GaoJeandediannao.local with PID 19806 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-25 22:19:34.360| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-25 22:19:35.335| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-25 22:19:35.343| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-25 22:19:35.344| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-25 22:19:35.344| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 22:19:35.436| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-25 22:19:35.437| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1004 ms
+2021-11-25 22:19:36.162| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-25 22:19:36.185| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-25 22:19:36.234| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.324 seconds (JVM running for 3.41)
+2021-11-25 22:19:39.673| INFO|http-nio-8088-exec-1|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-25 22:19:39.674| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[525]|Initializing Servlet 'dispatcherServlet'
+2021-11-25 22:19:39.675| INFO|http-nio-8088-exec-1|org.springframework.web.servlet.DispatcherServlet[547]|Completed initialization in 1 ms
+2021-11-25 22:19:39.728| INFO|http-nio-8088-exec-1|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"127.0.0.1","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 22:19:39.790| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[110]|DateSourceHikariCP - Starting...
+2021-11-25 22:19:39.968| INFO|http-nio-8088-exec-1|com.zaxxer.hikari.HikariDataSource[123]|DateSourceHikariCP - Start completed.
+2021-11-25 22:19:46.680| INFO|http-nio-8088-exec-1|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"6996ms"}
+2021-11-25 22:20:03.554| INFO|http-nio-8088-exec-2|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"127.0.0.1","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 22:20:03.570| INFO|http-nio-8088-exec-2|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"16ms"}
+2021-11-25 22:21:24.619| INFO|http-nio-8088-exec-4|LogFilter[85]|[HttpRequest] {"url":"http://localhost:8088/product/list","referer":null,"addr":"127.0.0.1","contentType":"application/json","accept":"*/*","agent":"ApiPOST Runtime +https://www.apipost.cn","sessionId":null,"parameters":{"pageNum":"1","pageSize":"10","skuName":"15"},"requestBody":"","method":"GET"}
+2021-11-25 22:22:08.659| INFO|http-nio-8088-exec-4|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"44039ms"}
+2021-11-25 22:22:08.814| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
+2021-11-25 22:22:08.817| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
