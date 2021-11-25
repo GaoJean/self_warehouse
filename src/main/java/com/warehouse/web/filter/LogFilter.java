@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,11 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.AntPathMatcher;
-import org.springframework.util.StreamUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
-import org.springframework.web.util.ContentCachingResponseWrapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,81 +37,93 @@ import com.warehouse.web.model.ResponseLog;
 @SuppressWarnings("checkstyle:MagicNumber")
 public class LogFilter extends OncePerRequestFilter {
     private final Logger logger = LoggerFactory.getLogger("LogFilter");
-    private boolean shouldLog = true;
-    private int maxLogLength = 2048;
-    private String sessionName = "dwu";
-    private boolean logHealthCheck;
-    private String healthCheckUri = "/health";
-    private final AntPathMatcher pathMatcher = new AntPathMatcher();
-    private final ObjectMapper mapper = new ObjectMapper();
+    public static final String CONTENT_TYPE_JSON = "application/json";
 
-    public LogFilter() {
-    }
+    /**
+     * 是否应该打印日志
+     */
+    private boolean shouldLog = true;
+
+    /**
+     * 用于记录Session的CookieName
+     */
+    private String sessionName = "self_house";
+
+    /**
+     * 最大日志显示长度
+     */
+    private int maxLogLength = 2048;
+
+    /**
+     * 是否打印健康检查日志
+     */
+    private boolean logHealthCheck;
+
+    /**
+     * 健康检查默认路径
+     */
+    private String healthCheckUri = "/health";
+
+    private static AntPathMatcher pathMatcher = new AntPathMatcher();
+    private static ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         boolean shouldNotFilter = super.shouldNotFilter(request);
         if (!shouldNotFilter) {
             String requestUri = request.getRequestURI();
-            shouldNotFilter = !this.shouldLog || this.isHealthCheckUri(requestUri) && !this.logHealthCheck;
+            shouldNotFilter = !shouldLog ? true : isHealthCheckUri(requestUri) && !logHealthCheck ? true : false;
         }
-
         return shouldNotFilter;
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
         throws ServletException, IOException {
-        boolean isFirstRequest = !this.isAsyncDispatch(request);
+        boolean isFirstRequest = !isAsyncDispatch(request);
         long beginTime = System.nanoTime();
-        CachingHttpServletResponseWrapper responseWrapper = new CachingHttpServletResponseWrapper(response);
-        HttpServletRequest requestToUse;
-        if (this.isJsonContentRequest(request) && isFirstRequest
-            && !(request instanceof CachingHttpServletRequestWrapper)) {
+        HttpServletRequest requestToUse = request;
+        // doFilter和记录日志需要为同一个数据流
+        response = new CachingHttpServletResponseWrapper(response);
+
+        if (isJsonContentRequest(requestToUse) && isFirstRequest
+            && !(requestToUse instanceof CachingHttpServletRequestWrapper)) {
             requestToUse = new CachingHttpServletRequestWrapper(request);
         } else {
             requestToUse = new ContentCachingRequestWrapper(request);
         }
 
-        boolean var13 = false;
-
         try {
-            var13 = true;
             if (isFirstRequest) {
-                RequestLog requestLog = this.buildRequestLog(requestToUse);
-                this.logger.info("[HttpRequest] {}", this.toJSONString(requestLog, false));
+                RequestLog requestLog = buildRequestLog(requestToUse);
+                logger.info("[HttpRequest] {}", toJSONString(requestLog, false));
             }
-
             filterChain.doFilter(requestToUse, response);
-            var13 = false;
         } finally {
-            if (var13) {
-                if (!this.isAsyncStarted(requestToUse)) {
-                    ResponseLog responseLog = this.buildResponseLog(request, responseWrapper, beginTime);
-                    this.logger.info("[HttpResponse] {}", this.toJSONString(responseLog, true));
-                }
-
+            if (!isAsyncStarted(requestToUse)) {
+                ResponseLog responseLog =
+                    buildResponseLog(request, (CachingHttpServletResponseWrapper) response, beginTime);
+                logger.info("[HttpResponse] {}", toJSONString(responseLog, true));
             }
         }
-
-        if (!this.isAsyncStarted(requestToUse)) {
-            ResponseLog responseLog = this.buildResponseLog(request, responseWrapper, beginTime);
-            this.logger.info("[HttpResponse] {}", this.toJSONString(responseLog, true));
-        }
-
     }
 
+    /**
+     * Request Log
+     *
+     * @param request
+     * @return
+     * @throws IOException
+     */
     private RequestLog buildRequestLog(HttpServletRequest request) throws IOException {
         RequestLog log = new RequestLog();
         Map<String, String[]> parameterMap = request.getParameterMap();
-        Map<String, Object> requestParams = this.generatorRequestParamMap(parameterMap);
+        Map<String, Object> requestParams = generatorRequestParamMap(parameterMap);
         String contentType = request.getContentType();
-        String sessionId;
         if (contentType != null && contentType.toLowerCase().contains("application/json")) {
-            sessionId = this.filterRequest(request.getInputStream());
-            log.setRequestBody(this.parseObject(sessionId));
+            String body = filterRequest(request.getInputStream());
+            log.setRequestBody(parseObject(body));
         }
-
         log.setUrl(new String(request.getRequestURL())).setAddr(IpUtil.getClientAddr(request))
             .setReferer(request.getHeader("Referer")).setAccept(request.getHeader("Accept"))
             .setAgent(request.getHeader("User-Agent")).setContentType(request.getContentType())
@@ -122,8 +131,14 @@ public class LogFilter extends OncePerRequestFilter {
         return log;
     }
 
+    /**
+     * 请求参数Map
+     *
+     * @param parameterMap
+     * @return
+     */
     private Map<String, Object> generatorRequestParamMap(Map<String, String[]> parameterMap) {
-        Map<String, Object> requestParams = new TreeMap();
+        Map<String, Object> requestParams = new TreeMap<>();
         if (parameterMap != null && !parameterMap.isEmpty()) {
             parameterMap.forEach((key, val) -> {
                 if (val != null && val.length > 0) {
@@ -133,51 +148,50 @@ public class LogFilter extends OncePerRequestFilter {
                         requestParams.put(key, val[0]);
                     }
                 }
-
             });
         }
-
         return requestParams;
     }
 
+    /**
+     * 1.0 基于Cookie的分布式SessionKey
+     *
+     * @param request
+     * @return
+     */
     private String getCookieSessionId(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         String sessionId = null;
         if (cookies != null && cookies.length > 0) {
-            for (int i = 0; i < cookies.length; ++i) {
+            for (int i = 0; i < cookies.length; i++) {
                 Cookie cookie = cookies[i];
-                if (this.sessionName.equals(cookie.getName())) {
+                if (sessionName.equals(cookie.getName())) {
                     sessionId = cookie.getValue();
                     break;
                 }
             }
         }
-
         return sessionId;
     }
 
-    private ResponseLog buildResponseLog(HttpServletRequest request, ContentCachingResponseWrapper response,
+    private ResponseLog buildResponseLog(HttpServletRequest request, CachingHttpServletResponseWrapper response,
         long beginTime) throws IOException {
         ResponseLog responseLog = new ResponseLog();
         String contentType = response.getContentType();
         if (StringUtils.isEmpty(contentType)) {
             contentType = response.getHeader("Content-Type");
         }
-
         Collection<String> headers = response.getHeaderNames();
-        Iterator var8 = headers.iterator();
-
-        while (var8.hasNext()) {
-            String string = (String) var8.next();
-            String value = response.getHeader(string);
-            this.logger.debug("Response Header:[{}], Value:[{}]", string, value);
+        for (String string : headers) {
+            String head = string;
+            String value = response.getHeader(head);
+            logger.debug("Response Header:[{}], Value:[{}]", head, value);
         }
-
-        responseLog.setContentType(contentType).setUrl(request.getRequestURL().toString())
-            .setAddr(IpUtil.getClientAddr(request)).setSetCookie(response.getHeader("Set-Cookie"));
-        responseLog.setResponse(this.parseObject(this.filterResponse(response)));
+        responseLog.setContentType(contentType).setUrl(request.getRequestURL().toString()).setAddr(IpUtil.getLocalIp())
+            .setSetCookie(response.getHeader("Set-Cookie"));
+        responseLog.setResponse(parseObject(filterResponse(response)));
         long cost = System.nanoTime() - beginTime;
-        responseLog.setCost(cost / 1000000L + "ms");
+        responseLog.setCost(cost / 1000000 + "ms");
         return responseLog;
     }
 
@@ -186,44 +200,55 @@ public class LogFilter extends OncePerRequestFilter {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line = null;
             StringBuilder builder = new StringBuilder();
-
             while ((line = reader.readLine()) != null) {
                 builder.append(line);
             }
-
             String body = builder.toString();
-            this.logger.debug(body);
+            logger.debug(body);
             return body;
         } catch (Exception e) {
-            this.logger.error("", e);
+            logger.error("", e);
             return null;
         }
     }
 
-    private String filterResponse(ContentCachingResponseWrapper wrapper) {
+    private String filterResponse(CachingHttpServletResponseWrapper wrapper) {
         try {
             String charsetEncoding = wrapper.getCharacterEncoding();
-            wrapper.copyBodyToResponse();
-            this.logger.debug(charsetEncoding);
-            byte[] body = StreamUtils.copyToByteArray(wrapper.getContentInputStream());
-            String outStr = new String(body, charsetEncoding);
-            this.logger.debug("Response OutStr={}", outStr);
+            logger.debug(charsetEncoding);
+            String outStr = new String(wrapper.toByteArray(), wrapper.getCharacterEncoding());
+            logger.debug("Response OutStr={}", outStr);
             return outStr;
         } catch (Exception e) {
-            this.logger.error("", e);
-            return null;
+            logger.error("", e);
         }
+        return null;
     }
 
+    /**
+     * 是否为 application/json
+     *
+     * @param request
+     * @return
+     */
     protected boolean isJsonContentRequest(HttpServletRequest request) {
         String contentType = request.getContentType();
-        return contentType != null && contentType.toLowerCase().contains("application/json");
+        if (contentType != null && contentType.toLowerCase().contains(CONTENT_TYPE_JSON)) {
+            return true;
+        }
+        return false;
     }
 
+    /**
+     * 转成JSON string
+     *
+     * @param object
+     * @param lenghtLimit 是否限制打印日志长度
+     * @return
+     */
     private String toJSONString(Object object, boolean lenghtLimit) throws JsonProcessingException {
-
-        String json = mapper.writeValueAsString(object);
-        int jsonLength = json.length() > this.maxLogLength && lenghtLimit ? this.maxLogLength : json.length();
+        String json = objectMapper.writeValueAsString(object);
+        int jsonLength = json.length() > maxLogLength && lenghtLimit ? maxLogLength : json.length();
         String jsonStr = json.substring(0, jsonLength);
         return jsonStr.replace("\\\"", "\"");
     }
@@ -231,12 +256,11 @@ public class LogFilter extends OncePerRequestFilter {
     private Object parseObject(String jsonStr) {
         try {
             if (jsonStr != null && !jsonStr.trim().isEmpty()) {
-                return mapper.readValue(jsonStr, Object.class);
+                return objectMapper.readValue(jsonStr, Object.class);
             }
         } catch (Exception e) {
-            this.logger.error("", e);
+            logger.error("", e);
         }
-
         return jsonStr;
     }
 
@@ -259,12 +283,11 @@ public class LogFilter extends OncePerRequestFilter {
     public void setHealthCheckUri(String healthCheckUri) {
         if (StringUtils.isEmpty(healthCheckUri)) {
             throw new IllegalArgumentException("health check uri can't be null or empty.");
-        } else {
-            this.healthCheckUri = healthCheckUri;
         }
+        this.healthCheckUri = healthCheckUri;
     }
 
     private boolean isHealthCheckUri(String requestUri) {
-        return this.pathMatcher.match(this.healthCheckUri, requestUri);
+        return pathMatcher.match(healthCheckUri, requestUri);
     }
 }
