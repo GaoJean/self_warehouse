@@ -2,13 +2,13 @@ package com.warehouse.web.controller.inventory;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-import com.warehouse.data.form.inventory.InventoryManagementSearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.warehouse.common.contants.Routes;
 import com.warehouse.core.service.inventory.InventoryService;
-import com.warehouse.data.form.inventory.InventoryManagementForm;
+import com.warehouse.data.form.inventory.InventoryRecordForm;
+import com.warehouse.data.form.inventory.InventoryRecordSearchForm;
 import com.warehouse.data.form.inventory.InventorySearchForm;
 import com.warehouse.web.controller.BaseController;
 import com.warehouse.web.model.HttpResult;
@@ -26,18 +26,18 @@ public class InventoryController extends BaseController {
     private InventoryService inventoryService;
 
     @GetMapping(Routes.INVENTORY_LIST)
-    public HttpResult list(InventorySearchForm searchForm) {
+    public HttpResult list(InventorySearchForm searchForm) throws Exception {
         return success(inventoryService.list(searchForm));
     }
 
-    @PostMapping(Routes.INVENTORY_MANAGEMENT)
-    public HttpResult management(@RequestBody InventoryManagementForm managementForm) {
-        return success(inventoryService.management(managementForm));
+    @PostMapping(Routes.INVENTORY_RECORD)
+    public HttpResult record(@RequestBody InventoryRecordForm inventoryRecordForm) throws Exception {
+        return success(inventoryService.record(inventoryRecordForm));
     }
 
-    @GetMapping(Routes.INVENTORY_MANAGEMENT_LIST)
-    public HttpResult managementList(InventoryManagementSearchForm managementSearchForm) {
-        return success(inventoryService.managementList(managementSearchForm));
+    @GetMapping(Routes.INVENTORY_RECORD_LIST)
+    public HttpResult recordList(InventoryRecordSearchForm recordSearchForm) throws Exception {
+        return success(inventoryService.recordList(recordSearchForm));
     }
 
 }

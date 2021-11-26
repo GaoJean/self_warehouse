@@ -1,26 +1,27 @@
 package com.warehouse.core.service.product;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.warehouse.common.util.Converters;
-import com.warehouse.dal.mapper.ext.ExtProductDOMapper;
-import com.warehouse.dal.model.ProductDO;
-import com.warehouse.dal.model.ext.ExtProductSearchDO;
-import com.warehouse.data.PageResult;
-import com.warehouse.data.convert.ProductFormConvert;
-import com.warehouse.data.form.product.ProductSearchForm;
-import com.warehouse.data.info.product.ProductSearchInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.warehouse.common.util.Converters;
+import com.warehouse.dal.mapper.ext.ExtProductDOMapper;
+import com.warehouse.dal.mapper.ext.ExtProductSkuDOMapper;
+import com.warehouse.dal.model.ProductDO;
+import com.warehouse.dal.model.ext.ExtProductSkuJoinDO;
+import com.warehouse.data.PageResult;
+import com.warehouse.data.form.product.ProductSearchForm;
+import com.warehouse.data.info.product.ProductSearchInfo;
 
 /**
  * @Description:
@@ -34,19 +35,24 @@ public class ProductService {
 
     @Autowired
     private ExtProductDOMapper extProductMapper;
+    @Autowired
+    private ExtProductSkuDOMapper extProductSkuMapper;
 
     public PageResult<ProductSearchInfo> productSearch(ProductSearchForm productSearchForm) {
-        ExtProductSearchDO extProductSearchDO = ProductFormConvert.INSTANCE.fromToDO(productSearchForm);
         Integer pageNum = productSearchForm.getPageNum();
         Integer pageSize = productSearchForm.getPageSize();
-        Page<ProductDO> page = PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> {
-            extProductMapper.selectProductList(extProductSearchDO);
+        Page<ExtProductSkuJoinDO> page = PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> {
+            extProductSkuMapper.selectJoinProductSku(productSearchForm.getProductName(),
+                productSearchForm.getSkuName());
         });
         return Converters.pageConverter(pageNum, pageSize, this::productConvert).apply(page);
     }
 
-    public ProductSearchInfo productConvert(ProductDO productDO) {
-        return new ProductSearchInfo();
+    public ProductSearchInfo productConvert(ExtProductSkuJoinDO productSkuJoinDO) {
+        return ProductSearchInfo.builder().id(productSkuJoinDO.getId()).productName(productSkuJoinDO.getProductName())
+            .productId(productSkuJoinDO.getProductId()).skuId(productSkuJoinDO.getSkuId())
+            .skuName(productSkuJoinDO.getSkuName()).gmtCreate(productSkuJoinDO.getGmtCreate())
+            .gmtModified(productSkuJoinDO.getGmtModified()).isDelete(productSkuJoinDO.getIsDelete()).build();
     }
 
     public List<ProductDO> queryByIds(Collection<Long> ids) {

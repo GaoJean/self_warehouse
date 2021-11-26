@@ -3,10 +3,10 @@ package com.warehouse.dal.mapper.ext;
 import java.util.Collection;
 import java.util.List;
 
-import com.warehouse.dal.model.ProductDO;
-import com.warehouse.dal.model.SkuDO;
-import com.warehouse.dal.model.ext.ExtProductSearchDO;
 import org.apache.ibatis.annotations.Param;
+
+import com.warehouse.dal.model.ProductDO;
+import com.warehouse.dal.model.ext.ExtProductSearchDO;
 
 public interface ExtProductDOMapper {
 
