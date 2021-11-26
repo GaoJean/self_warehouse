@@ -18,6 +18,14 @@
     <properties>
         <java.version>11</java.version>
 
+        <plugin.maven-compiler.version>3.8.1</plugin.maven-compiler.version>
+        <plugin.maven-jar.version>3.2.0</plugin.maven-jar.version>
+        <plugin.maven-source.version>3.2.1</plugin.maven-source.version>
+        <plugin.maven-assembly.version>3.3.0</plugin.maven-assembly.version>
+        <plugin.flatten-maven.version>1.2.2</plugin.flatten-maven.version>
+        <plugin.maven-checkstyle.version>3.1.1</plugin.maven-checkstyle.version>
+        <plugin.maven-pmd.version>3.13.0</plugin.maven-pmd.version>
+
         <log4j.version>1.2.17</log4j.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <commons.lang3.version>3.9</commons.lang3.version>
@@ -110,6 +118,41 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <!-- jar -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${plugin.maven-jar.version}</version>
+                </plugin>
+                <!-- compiler -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${plugin.maven-compiler.version}</version>
+                </plugin>
+                <!-- source -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${plugin.maven-source.version}</version>
+                </plugin>
+                <!-- assembly -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${plugin.maven-assembly.version}</version>
+                </plugin>
+                <!-- flatten-maven-plugin -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                    <version>${plugin.flatten-maven.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -120,6 +163,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <showWarnings>true</showWarnings>
                     <source>11</source> <!-- depending on your project -->
                     <target>11</target> <!-- depending on your project -->
                     <annotationProcessorPaths>
@@ -136,6 +180,44 @@
                         <!-- other annotation processors -->
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <!-- source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- flatten-maven -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <!--mybatis-generator -->
             <plugin>

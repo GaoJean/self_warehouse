@@ -26,7 +26,7 @@ public class ProductController extends BaseController {
     private ProductService productService;
 
     @GetMapping(value = Routes.PRODUCT_LIST)
-    public HttpResult list(@RequestBody ProductSearchForm productSearchForm) {
+    public HttpResult list(ProductSearchForm productSearchForm) {
         return success(productService.productSearch(productSearchForm));
     }
 }
