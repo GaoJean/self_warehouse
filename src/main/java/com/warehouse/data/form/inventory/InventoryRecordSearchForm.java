@@ -16,6 +16,7 @@ public class InventoryRecordSearchForm extends BaseSearchForm {
     private static final long serialVersionUID = 2750914944663885199L;
     private String productName;
     private String skuName;
+    private Integer managementType;
     private Long startTime;
     private Long endTime;
 }

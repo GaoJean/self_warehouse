@@ -75,6 +75,9 @@
         #{skuId}
       </foreach>
     </if>
+    <if test="managementType != null">
+      and management_type = #{managementType}
+    </if>
     <if test="startTime != null">
       <![CDATA[ and gmt_create > #{startTime}]]>
     </if>

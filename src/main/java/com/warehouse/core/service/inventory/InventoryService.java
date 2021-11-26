@@ -252,6 +252,9 @@ public class InventoryService {
         if (Objects.nonNull(recordSearchForm.getEndTime())) {
             extInventoryRecordSearchDO.setEndTime(new Date(recordSearchForm.getEndTime()));
         }
+        if (Objects.nonNull(recordSearchForm.getManagementType())) {
+            extInventoryRecordSearchDO.setManagementType(recordSearchForm.getManagementType());
+        }
         return Optional.of(extInventoryRecordSearchDO);
 
     }

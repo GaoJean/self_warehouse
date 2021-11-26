@@ -212,3 +212,14 @@ Caused by: java.lang.NoClassDefFoundError: com/warehouse/dal/model/ProductSkuDO 
 2021-11-25 22:22:08.659| INFO|http-nio-8088-exec-4|LogFilter[102]|[HttpResponse] {"contentType":"application/json","url":"http://localhost:8088/product/list","addr":"127.0.0.1","response":"","setCookie":null,"cost":"44039ms"}
 2021-11-25 22:22:08.814| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[350]|DateSourceHikariCP - Shutdown initiated...
 2021-11-25 22:22:08.817| INFO|SpringApplicationShutdownHook|com.zaxxer.hikari.HikariDataSource[352]|DateSourceHikariCP - Shutdown completed.
+2021-11-26 09:37:57.510| INFO|main|com.warehouse.SelfWarehouseApplication[55]|Starting SelfWarehouseApplication using Java 11.0.7 on MacBook-Pro-7.local with PID 51680 (/Users/gaojian/work/practice/workspace/self_warehouse/target/classes started by gaojian in /Users/gaojian/work/practice/workspace/self_warehouse)
+2021-11-26 09:37:57.513| INFO|main|com.warehouse.SelfWarehouseApplication[659]|No active profile set, falling back to default profiles: default
+2021-11-26 09:37:58.794| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[108]|Tomcat initialized with port(s): 8088 (http)
+2021-11-26 09:37:58.807| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Initializing ProtocolHandler ["http-nio-8088"]
+2021-11-26 09:37:58.808| INFO|main|org.apache.catalina.core.StandardService[173]|Starting service [Tomcat]
+2021-11-26 09:37:58.808| INFO|main|org.apache.catalina.core.StandardEngine[173]|Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-26 09:37:58.890| INFO|main|org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/][173]|Initializing Spring embedded WebApplicationContext
+2021-11-26 09:37:58.890| INFO|main|org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext[290]|Root WebApplicationContext: initialization completed in 1317 ms
+2021-11-26 09:37:59.818| INFO|main|org.apache.coyote.http11.Http11NioProtocol[173]|Starting ProtocolHandler ["http-nio-8088"]
+2021-11-26 09:37:59.839| INFO|main|org.springframework.boot.web.embedded.tomcat.TomcatWebServer[220]|Tomcat started on port(s): 8088 (http) with context path ''
+2021-11-26 09:37:59.870| INFO|main|com.warehouse.SelfWarehouseApplication[61]|Started SelfWarehouseApplication in 2.961 seconds (JVM running for 5.832)

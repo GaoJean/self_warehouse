@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 public class ExtInventoryRecordSearchDO {
     private Collection<Long> productIds;
     private Collection<Long> skuIds;
+    private Integer managementType;
     private Date startTime;
     private Date endTime;
 }

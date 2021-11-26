@@ -27,16 +27,19 @@ public class InventoryController extends BaseController {
 
     @GetMapping(Routes.INVENTORY_LIST)
     public HttpResult list(InventorySearchForm searchForm) throws Exception {
+        searchForm.check();
         return success(inventoryService.list(searchForm));
     }
 
     @PostMapping(Routes.INVENTORY_RECORD)
     public HttpResult record(@RequestBody InventoryRecordForm inventoryRecordForm) throws Exception {
+        inventoryRecordForm.check();
         return success(inventoryService.record(inventoryRecordForm));
     }
 
     @GetMapping(Routes.INVENTORY_RECORD_LIST)
     public HttpResult recordList(InventoryRecordSearchForm recordSearchForm) throws Exception {
+        recordSearchForm.check();
         return success(inventoryService.recordList(recordSearchForm));
     }
 
