@@ -1,6 +1,5 @@
 package com.warehouse.web.filter.wrapper;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +9,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.WriteListener;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
+
+import org.apache.commons.io.output.TeeOutputStream;
 
 /**
  * @Description:
