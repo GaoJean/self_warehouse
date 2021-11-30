@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import com.warehouse.common.enmus.ManagementTypeEnum;
-import com.warehouse.common.error.ApiError;
 import com.warehouse.common.exception.HouseException;
+import com.warehouse.common.util.ExceptionUtil;
 
 import lombok.Data;
 
@@ -30,20 +30,10 @@ public class InventoryRecordForm implements Serializable {
     }
 
     public void check() throws HouseException {
-        if (Objects.isNull(productId)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "productId 不能为空");
-        }
-        if (Objects.isNull(skuId)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "skuId 不能为空");
-        }
-        if (Objects.isNull(managementType)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "managementType 不能为空");
-        }
-        if (Objects.isNull(remaining)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "remaining 不能为空");
-        }
-        if (Objects.isNull(quantity)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "quantity 不能为空");
-        }
+        ExceptionUtil.paramIsTrue(Objects.isNull(productId)).throwMessage("productId 不能为空");
+        ExceptionUtil.paramIsTrue(Objects.isNull(skuId)).throwMessage("skuId 不能为空");
+        ExceptionUtil.paramIsTrue(Objects.isNull(managementType)).throwMessage("managementType 不能为空");
+        ExceptionUtil.paramIsTrue(Objects.isNull(remaining)).throwMessage("remaining 不能为空");
+        ExceptionUtil.paramIsTrue(Objects.isNull(quantity)).throwMessage("quantity 不能为空");
     }
 }

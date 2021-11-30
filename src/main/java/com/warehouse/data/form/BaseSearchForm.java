@@ -3,8 +3,8 @@ package com.warehouse.data.form;
 import java.io.Serializable;
 import java.util.Objects;
 
-import com.warehouse.common.error.ApiError;
 import com.warehouse.common.exception.HouseException;
+import com.warehouse.common.util.ExceptionUtil;
 
 import lombok.Data;
 
@@ -20,12 +20,8 @@ public class BaseSearchForm implements Serializable {
     private Integer pageSize;
 
     public void check() throws HouseException {
-        if (Objects.isNull(pageSize)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "pageSize 不能为空");
-        }
-        if (Objects.isNull(pageNum)) {
-            throw new HouseException(ApiError.BASE_BAD_PARAMS, "pageNum 不能为空");
-        }
+        ExceptionUtil.paramIsTrue(Objects.isNull(pageSize)).throwMessage("pageSize 不能为空");
+        ExceptionUtil.paramIsTrue(Objects.isNull(pageNum)).throwMessage("pageNum 不能为空");
     }
 
 }
