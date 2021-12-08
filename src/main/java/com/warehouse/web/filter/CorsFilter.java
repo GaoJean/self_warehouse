@@ -1,11 +1,12 @@
 package com.warehouse.web.filter;
 
-import org.springframework.stereotype.Component;
+import java.io.IOException;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import org.springframework.stereotype.Component;
 
 /**
  * @Description:
@@ -24,10 +25,10 @@ public class CorsFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         res.addHeader("Access-Control-Allow-Credentials", "true");
         res.addHeader("Access-Control-Allow-Origin", "*");
-        res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-        res.addHeader("Access-Control-Allow-Headers", "Content-Type,X-CAF-Authorization-Token,sessionToken,X-TOKEN");
-        if (((HttpServletRequest) request).getMethod().equals("OPTIONS")) {
-            response.getWriter().println("ok");
+        res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
+        res.addHeader("Access-Control-Allow-Headers",
+            "Content-Type,X-CAF-Authorization-Token,sessionToken,X-TOKEN,Access-Token,X-Requested-With,authorization");
+        if ("OPTIONS".equals(((HttpServletRequest) request).getMethod())) {
             return;
         }
         chain.doFilter(request, response);
