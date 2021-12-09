@@ -1,6 +1,5 @@
 package com.warehouse.web.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +14,6 @@ import com.warehouse.web.model.HttpResult;
 public class BaseController {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
-
-    public static final ObjectMapper MAPPER = new ObjectMapper();
 
     public BaseController() {
     }

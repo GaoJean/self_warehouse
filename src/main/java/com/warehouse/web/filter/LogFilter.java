@@ -22,8 +22,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.warehouse.common.util.IpUtil;
+import com.warehouse.common.util.JacksonUtil;
 import com.warehouse.web.filter.wrapper.CachingHttpServletRequestWrapper;
 import com.warehouse.web.filter.wrapper.CachingHttpServletResponseWrapper;
 import com.warehouse.web.model.RequestLog;
@@ -65,7 +65,6 @@ public class LogFilter extends OncePerRequestFilter {
     private String healthCheckUri = "/health";
 
     private static AntPathMatcher pathMatcher = new AntPathMatcher();
-    private static ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
@@ -247,7 +246,7 @@ public class LogFilter extends OncePerRequestFilter {
      * @return
      */
     private String toJSONString(Object object, boolean lenghtLimit) throws JsonProcessingException {
-        String json = objectMapper.writeValueAsString(object);
+        String json = JacksonUtil.toJson(object);
         int jsonLength = json.length() > maxLogLength && lenghtLimit ? maxLogLength : json.length();
         String jsonStr = json.substring(0, jsonLength);
         return jsonStr.replace("\\\"", "\"");
@@ -256,7 +255,7 @@ public class LogFilter extends OncePerRequestFilter {
     private Object parseObject(String jsonStr) {
         try {
             if (jsonStr != null && !jsonStr.trim().isEmpty()) {
-                return objectMapper.readValue(jsonStr, Object.class);
+                return JacksonUtil.toObject(jsonStr, Object.class);
             }
         } catch (Exception e) {
             logger.error("", e);
