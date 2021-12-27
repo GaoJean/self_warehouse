@@ -33,7 +33,7 @@ public class InventoryRecordForm implements Serializable {
         ExceptionUtil.paramIsTrue(Objects.isNull(productId)).throwMessage("productId 不能为空");
         ExceptionUtil.paramIsTrue(Objects.isNull(skuId)).throwMessage("skuId 不能为空");
         ExceptionUtil.paramIsTrue(Objects.isNull(managementType)).throwMessage("managementType 不能为空");
-        ExceptionUtil.paramIsTrue(Objects.isNull(remaining)).throwMessage("remaining 不能为空");
+//        ExceptionUtil.paramIsTrue(Objects.isNull(remaining)).throwMessage("remaining 不能为空");
         ExceptionUtil.paramIsTrue(Objects.isNull(quantity)).throwMessage("quantity 不能为空");
     }
 }

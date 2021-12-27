@@ -131,6 +131,13 @@ public class InventoryService {
 
     @Transactional(rollbackFor = Exception.class)
     public Boolean record(InventoryRecordForm inventoryRecordForm) throws HouseException {
+        InventoryDO inventoryDO =
+            extInventoryMapper.selectBySku(inventoryRecordForm.getSkuId(), inventoryRecordForm.getProductId());
+        if (Objects.nonNull(inventoryDO)) {
+            inventoryRecordForm.setRemaining(inventoryDO.getTotalRemaining());
+        } else {
+            inventoryRecordForm.setRemaining(0);
+        }
         insertRecord(inventoryRecordForm);
         updateInventory(inventoryRecordForm);
         return true;
