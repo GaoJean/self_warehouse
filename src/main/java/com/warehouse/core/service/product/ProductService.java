@@ -51,8 +51,9 @@ public class ProductService {
     public ProductSearchInfo productConvert(ExtProductSkuJoinDO productSkuJoinDO) {
         return ProductSearchInfo.builder().id(productSkuJoinDO.getId()).productName(productSkuJoinDO.getProductName())
             .productId(productSkuJoinDO.getProductId()).skuId(productSkuJoinDO.getSkuId())
-            .skuName(productSkuJoinDO.getSkuName()).gmtCreate(productSkuJoinDO.getGmtCreate())
-            .gmtModified(productSkuJoinDO.getGmtModified()).isDelete(productSkuJoinDO.getIsDelete()).build();
+            .skuName(productSkuJoinDO.getSkuName()).unit(productSkuJoinDO.getUnit())
+            .gmtCreate(productSkuJoinDO.getGmtCreate()).gmtModified(productSkuJoinDO.getGmtModified())
+            .isDelete(productSkuJoinDO.getIsDelete()).build();
     }
 
     public List<ProductDO> queryByIds(Collection<Long> ids) {
