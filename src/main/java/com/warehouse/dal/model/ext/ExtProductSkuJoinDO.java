@@ -16,6 +16,7 @@ public class ExtProductSkuJoinDO implements Serializable {
     private Long skuId;
     private String productName;
     private String skuName;
+    private String unit;
     private Byte isDelete;
     private Date gmtCreate;
     private Date gmtModified;
@@ -60,6 +61,14 @@ public class ExtProductSkuJoinDO implements Serializable {
         this.skuName = skuName;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public Byte getIsDelete() {
         return isDelete;
     }
@@ -87,7 +96,7 @@ public class ExtProductSkuJoinDO implements Serializable {
     @Override
     public String toString() {
         return "ExtProductSkuJoinDO{" + "id=" + id + ", productId=" + productId + ", skuId=" + skuId + ", productName='"
-            + productName + '\'' + ", skuName='" + skuName + '\'' + ", isDelete=" + isDelete + ", gmtCreate="
-            + gmtCreate + ", gmtModified=" + gmtModified + '}';
+            + productName + '\'' + ", skuName='" + skuName + '\'' + ", unit='" + unit + '\'' + ", isDelete=" + isDelete
+            + ", gmtCreate=" + gmtCreate + ", gmtModified=" + gmtModified + '}';
     }
 }

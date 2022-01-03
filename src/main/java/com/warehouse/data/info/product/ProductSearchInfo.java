@@ -20,6 +20,7 @@ public class ProductSearchInfo implements Serializable {
     private Long skuId;
     private String productName;
     private String skuName;
+    private String unit;
     private Byte isDelete;
     private Date gmtCreate;
     private Date gmtModified;

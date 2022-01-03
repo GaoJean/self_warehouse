@@ -15,6 +15,7 @@
     <result column="sku_id" jdbcType="BIGINT" property="skuId"/>
     <result column="product_name" jdbcType="VARCHAR" property="productName"/>
     <result column="sku_name" jdbcType="VARCHAR" property="skuName"/>
+    <result column="unit" jdbcType="VARCHAR" property="unit"/>
     <result column="is_delete" jdbcType="TINYINT" property="isDelete"/>
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
@@ -26,6 +27,7 @@
 	ps.sku_id,
 	p.product_name,
 	s.sku_name,
+	s.unit,
 	ps.is_delete,
 	ps.gmt_create,
 	ps.gmt_modified
