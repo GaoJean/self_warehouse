@@ -42,6 +42,7 @@
         <jackson.version>2.13.1</jackson.version>
         <spring.mybatis.version>2.0.5</spring.mybatis.version>
 
+        <skywalking-version>8.9.0</skywalking-version>
     </properties>
     <dependencies>
         <dependency>
@@ -150,6 +151,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>${skywalking-version}</version>
         </dependency>
 
     </dependencies>

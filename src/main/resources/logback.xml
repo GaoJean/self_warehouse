@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60000" debug="false">
     <!-- 文件输出格式 -->
-    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%5level|%thread|%c[%L]|%msg%n"/>
-    <property name="MYBATIS-WHOLE-PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%5level|%thread|%msg%n"/>
+    <conversionRule conversionWord="tid" converterClass="org.apache.skywalking.apm.toolkit.log.logback.v1.x.LogbackPatternConverter" />
+
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%5level|%tid|%thread|%c[%L]|%msg%n"/>
+    <property name="MYBATIS-WHOLE-PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}|%5level|%tid|%thread|%msg%n"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
