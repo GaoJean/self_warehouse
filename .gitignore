@@ -35,3 +35,5 @@ hs_err_pid*
 # maven flatten & versions plugin
 .flattened-pom.xml
 pom.xml.versionsBackup
+
+./logs
