@@ -9,7 +9,7 @@ import com.warehouse.web.filter.LogFilter;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/25 21:48
  */
 @Configuration

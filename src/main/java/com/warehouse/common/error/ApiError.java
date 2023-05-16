@@ -2,7 +2,7 @@ package com.warehouse.common.error;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/06/03 18:29
  */
 public enum ApiError implements ErrorCode {

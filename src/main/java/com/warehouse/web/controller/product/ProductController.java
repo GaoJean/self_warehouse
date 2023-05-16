@@ -15,7 +15,7 @@ import com.warehouse.web.model.HttpResult;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/06 16:12
  */
 @RestController

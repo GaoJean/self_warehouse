@@ -13,7 +13,7 @@ import org.springframework.web.util.ContentCachingRequestWrapper;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/25 21:30
  */
 public class CachingHttpServletRequestWrapper extends ContentCachingRequestWrapper {

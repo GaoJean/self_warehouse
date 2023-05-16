@@ -40,7 +40,7 @@ import com.warehouse.data.info.inventory.InventorySearchInfo;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/08 22:54
  */
 @Service

@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/25 20:53
  */
 public class ExtProductSkuJoinDO implements Serializable {

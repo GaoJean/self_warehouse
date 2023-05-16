@@ -31,7 +31,7 @@ import com.warehouse.web.model.ResponseLog;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/25 21:28
  */
 @SuppressWarnings("checkstyle:MagicNumber")
@@ -71,7 +71,7 @@ public class LogFilter extends OncePerRequestFilter {
         boolean shouldNotFilter = super.shouldNotFilter(request);
         if (!shouldNotFilter) {
             String requestUri = request.getRequestURI();
-            shouldNotFilter = !shouldLog ? true : isHealthCheckUri(requestUri) && !logHealthCheck ? true : false;
+            shouldNotFilter = !shouldLog || (isHealthCheckUri(requestUri) && !logHealthCheck);
         }
         return shouldNotFilter;
     }
@@ -232,10 +232,7 @@ public class LogFilter extends OncePerRequestFilter {
      */
     protected boolean isJsonContentRequest(HttpServletRequest request) {
         String contentType = request.getContentType();
-        if (contentType != null && contentType.toLowerCase().contains(CONTENT_TYPE_JSON)) {
-            return true;
-        }
-        return false;
+        return contentType != null && contentType.toLowerCase().contains(CONTENT_TYPE_JSON);
     }
 
     /**

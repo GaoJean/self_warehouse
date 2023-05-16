@@ -8,7 +8,7 @@ import com.warehouse.web.model.HttpResult;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/18 21:55
  */
 public class BaseController {

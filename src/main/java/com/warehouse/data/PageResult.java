@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/08 23:21
  */
 public class PageResult<T> implements Serializable {

@@ -2,7 +2,7 @@ package com.warehouse.common.contants;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/06 16:17
  */
 public class Routes {

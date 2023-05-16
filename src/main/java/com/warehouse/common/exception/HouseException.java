@@ -4,7 +4,7 @@ import com.warehouse.common.error.ErrorCode;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/06/03 18:33
  */
 public class HouseException extends Exception {

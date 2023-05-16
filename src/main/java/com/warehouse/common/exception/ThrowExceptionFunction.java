@@ -2,7 +2,7 @@ package com.warehouse.common.exception;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/26 16:22
  */
 @FunctionalInterface

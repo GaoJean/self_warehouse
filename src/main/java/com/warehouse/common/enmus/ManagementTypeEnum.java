@@ -2,7 +2,7 @@ package com.warehouse.common.enmus;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/21 14:13
  */
 public enum ManagementTypeEnum {

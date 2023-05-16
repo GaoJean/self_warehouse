@@ -10,7 +10,7 @@ import com.warehouse.data.form.inventory.InventorySearchForm;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/18 21:43
  */
 @Mapper

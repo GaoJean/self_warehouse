@@ -6,7 +6,7 @@ import com.warehouse.common.exception.ThrowExceptionFunction;
 
 /**
  * @Description:
- * @Author: gaojian@doctorwork.com
+ * @Author: gaojian
  * @Date: 2021/11/26 16:23
  */
 public class ExceptionUtil {
