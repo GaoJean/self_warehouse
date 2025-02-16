@@ -3,9 +3,9 @@ server:
 # 数据源
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/inventory?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://10.8.107.234:3306/inventory?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     username: root
-    password: 123456
+    password: mysql_123456
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connection-timeout: 60000
